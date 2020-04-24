@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "CSymEngine",
+        "repositoryURL": "/Users/ianruh/Dev/CSymEngine",
+        "state": {
+          "branch": null,
+          "revision": "3b7b5e297ed54c662922fb88c4171928baca71f1",
+          "version": "0.0.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
