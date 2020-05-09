@@ -28,36 +28,76 @@ Struct for accessing fundemental constants.
  All of the members are declared static.
 */
 public struct Constants {
-    public static let zero = Basic.getConst(.zero)
-    public static let one  = Basic.getConst(.one)
-    public static let negOne = Basic.getConst(.negOne)
-    public static let I = Basic.getConst(.I)
     
-    public static let pi = Basic.getConst(.pi)
-    public static let e = Basic.getConst(.e)
-    public static let eulerGamma = Basic.getConst(.eulerGamma)
-    public static let catalan = Basic.getConst(.catalan)
-    public static let goldenRatio = Basic.getConst(.goldenRatio)
+    /**
+     The constant zeros.
+     */
+    public static let zero = Symbol.getConst(.zero)
+    /**
+    The constant one.
+    */
+    public static let one  = Symbol.getConst(.one)
+    /**
+    The constant negative one.
+    */
+    public static let negOne = Symbol.getConst(.negOne)
+    /**
+    The constant for sqrt(-1).
+    */
+    public static let I = Symbol.getConst(.I)
     
-    public static let inf = Basic.getConst(.inf)
-    public static let negInf = Basic.getConst(.negInf)
-    public static let complexInf = Basic.getConst(.complexInf)
+    /**
+    The constant pi.
+    */
+    public static let pi = Symbol.getConst(.pi)
+    /**
+    The constant e.
+    */
+    public static let e = Symbol.getConst(.e)
+    /**
+    The constant euler gamma.
+    */
+    public static let eulerGamma = Symbol.getConst(.eulerGamma)
+    /**
+    The catalan constant.
+    */
+    public static let catalan = Symbol.getConst(.catalan)
+    /**
+    The golden ratio.
+    */
+    public static let goldenRatio = Symbol.getConst(.goldenRatio)
     
-    public static let nan = Basic.getConst(.nan)
+    /**
+    A constant for infinity.
+    */
+    public static let inf = Symbol.getConst(.inf)
+    /**
+    A constantf or negative infinity.
+    */
+    public static let negInf = Symbol.getConst(.negInf)
+    /**
+    A constant for complex infinity.
+    */
+    public static let complexInf = Symbol.getConst(.complexInf)
+    
+    /**
+    A constant nan.
+    */
+    public static let nan = Symbol.getConst(.nan)
 }
 
-extension Basic {
+extension Symbol {
     //---------------------- Constants -----------------------
     
     /**
-     Internally used function to get a `Basic` for the given `ConstantEnum`
+     Internally used function to get a `Symbol` for the given `ConstantEnum`
 
     - Parameter _: The constant to get.
 
-    - Returns: A new constant `Basic` for the given constant.
+    - Returns: A new constant `Symbol` for the given constant.
     */
-    internal static func getConst(_ const: ConstantsEnum) -> Basic {
-        let b: Basic = Basic()
+    internal static func getConst(_ const: ConstantsEnum) -> Symbol {
+        let b: Symbol = Symbol()
         
         // Call the relevant initializer
         switch(const) {
@@ -88,7 +128,7 @@ extension Basic {
         case .nan:
             basic_const_nan(b.pointer)
         }
-        // Return the Basic
+        // Return the Symbol
         return b
     }
 }

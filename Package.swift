@@ -16,19 +16,19 @@ let package = Package(
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
-        .package(url: "../CSymEngine", from: "0.0.1"),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "SymEngine",
-            dependencies: []),
+            dependencies: ["CSymEngine"]),
         .testTarget(
             name: "SymEngineTests",
             dependencies: ["SymEngine"]),
         .target(
             name: "TestExec",
-            dependencies: ["SymEngine"])
+            dependencies: ["SymEngine"]),
+        .systemLibrary(name: "CSymEngine", pkgConfig: "symengine")
     ]
 )

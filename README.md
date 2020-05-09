@@ -6,6 +6,11 @@
 
 This is janky, but the only way I've found to work. If you know better (e.g. have any clue as to how to do this properly :smile: ) I would love to find out.
 
+```
+$ export PKG_CONFIG_PATH=/usr/local/anaconda3/lib/pkgconfig/
+$ cp pkgconfig/symengine.pc /usr/local/anaconda3/lib/pkgconfig/
+```
+
 1. Install SymEngine using conda: 
 
    ```
@@ -34,3 +39,7 @@ This is janky, but the only way I've found to work. If you know better (e.g. hav
 
    :confetti_ball::confetti_ball:
 
+## ToDo
+
+- [ ] `TypeID` and getting the type
+- [ ] 

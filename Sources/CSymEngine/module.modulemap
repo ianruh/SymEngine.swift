@@ -1,0 +1,5 @@
+module CSymEngine [system] {
+  header "shim.h"
+  link "symengine"
+  export *
+}

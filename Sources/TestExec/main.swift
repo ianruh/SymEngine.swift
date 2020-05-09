@@ -1,7 +1,15 @@
 import SymEngine
 
-let b: Basic = Constants.zero
-print("Value: \(b)")
+let x = Symbol(name: "x")!
+let y = Symbol(name: "y")!
 
-let exp = Basic("x+3*4")
-print("Expression is: \(exp!)")
+let exp = 3*y/(2*x**4)
+print("Expression is: \(exp)")
+
+print(diff(of: exp, withRespectTo: x)!.string!)
+
+let exp2 = (x+y**2 - 9)**2
+print(expand(exp2)!.string!)
+
+let exp3 = cos(x)*sin(x)*cos(x)*x
+print(exp3!.string!)

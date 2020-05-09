@@ -1,7 +1,7 @@
 import XCTest
 @testable import SymEngine
 
-final class SymEngineTests: XCTestCase {
+final class SymbolTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
@@ -9,7 +9,7 @@ final class SymEngineTests: XCTestCase {
 //        XCTAssertEqual(SymEngine().text, "Hello, World!")
     }
 
-    static var allTests = [
-        ("testExample", testExample),
-    ]
+//    static var allTests = [
+//        ("testExample", testExample),
+//    ]
 }
