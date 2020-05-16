@@ -9,10 +9,15 @@ Take the derivative of a symbol with  respect to the given symbol.
 
 - Returns: A new symbol representing the derivative of the current  `Symbol`.
 */
-public func diff(of symbol: Symbol, withRespectTo dSymbol: Symbol ) -> Symbol? {
+public func diff(of symbol: Symbol?, withRespectTo dSymbol: Symbol? ) -> Symbol? {
+    // Handle optional inputs
+    if(symbol == nil || dSymbol == nil) {
+        return nil
+    }
+    
     let newSymbol = Symbol()
     do {
-        try checkReturn(basic_diff(newSymbol.pointer, symbol.pointer, dSymbol.pointer))
+        try checkReturn(basic_diff(newSymbol.pointer, symbol!.pointer, dSymbol!.pointer))
     } catch {
         return nil
     }
@@ -26,7 +31,10 @@ public func diff(of symbol: Symbol, withRespectTo dSymbol: Symbol ) -> Symbol? {
  
  - Returns: A new expanded symbol.
  */
-public func expand(_ symbol: Symbol) -> Symbol? {
+public func expand(_ symbolOpt: Symbol?) -> Symbol? {
+    // Handle optional inputs
+    guard let symbol = symbolOpt else {return nil}
+    
     let newSymbol = Symbol()
     
     do {
@@ -44,7 +52,10 @@ public func expand(_ symbol: Symbol) -> Symbol? {
  
  - Returns: A new neged symbol.
  */
-public func neg(_ symbol: Symbol) -> Symbol? {
+public func neg(_ symbolOpt: Symbol?) -> Symbol? {
+    // Handle optional inputs
+    guard let symbol = symbolOpt else {return nil}
+    
     let newSymbol = Symbol()
     
     do {
@@ -62,7 +73,10 @@ public func neg(_ symbol: Symbol) -> Symbol? {
  
  - Returns: A new absed symbol.
  */
-public func abs(_ symbol: Symbol) -> Symbol? {
+public func abs(_ symbolOpt: Symbol?) -> Symbol? {
+    // Handle optional inputs
+    guard let symbol = symbolOpt else {return nil}
+    
     let newSymbol = Symbol()
     
     do {
@@ -80,7 +94,10 @@ public func abs(_ symbol: Symbol) -> Symbol? {
  
  - Returns: A new erfed symbol.
  */
-public func erf(_ symbol: Symbol) -> Symbol? {
+public func erf(_ symbolOpt: Symbol?) -> Symbol? {
+    // Handle optional inputs
+    guard let symbol = symbolOpt else {return nil}
+    
     let newSymbol = Symbol()
     
     do {
@@ -98,7 +115,10 @@ public func erf(_ symbol: Symbol) -> Symbol? {
  
  - Returns: A new erfced symbol.
  */
-public func erfc(_ symbol: Symbol) -> Symbol? {
+public func erfc(_ symbolOpt: Symbol?) -> Symbol? {
+    // Handle optional inputs
+    guard let symbol = symbolOpt else {return nil}
+    
     let newSymbol = Symbol()
     
     do {
@@ -116,7 +136,10 @@ public func erfc(_ symbol: Symbol) -> Symbol? {
  
  - Returns: A new sined symbol.
  */
-public func sin(_ symbol: Symbol) -> Symbol? {
+public func sin(_ symbolOpt: Symbol?) -> Symbol? {
+    // Handle optional inputs
+    guard let symbol = symbolOpt else {return nil}
+    
     let newSymbol = Symbol()
     
     do {
@@ -134,7 +157,10 @@ public func sin(_ symbol: Symbol) -> Symbol? {
  
  - Returns: A new cosed symbol.
  */
-public func cos(_ symbol: Symbol) -> Symbol? {
+public func cos(_ symbolOpt: Symbol?) -> Symbol? {
+    // Handle optional inputs
+    guard let symbol = symbolOpt else {return nil}
+    
     let newSymbol = Symbol()
     
     do {
@@ -152,7 +178,10 @@ public func cos(_ symbol: Symbol) -> Symbol? {
  
  - Returns: A new taned symbol.
  */
-public func tan(_ symbol: Symbol) -> Symbol? {
+public func tan(_ symbolOpt: Symbol?) -> Symbol? {
+    // Handle optional inputs
+    guard let symbol = symbolOpt else {return nil}
+    
     let newSymbol = Symbol()
     
     do {
@@ -170,7 +199,10 @@ public func tan(_ symbol: Symbol) -> Symbol? {
  
  - Returns: A new asined symbol.
  */
-public func asin(_ symbol: Symbol) -> Symbol? {
+public func asin(_ symbolOpt: Symbol?) -> Symbol? {
+    // Handle optional inputs
+    guard let symbol = symbolOpt else {return nil}
+    
     let newSymbol = Symbol()
     
     do {
@@ -188,7 +220,10 @@ public func asin(_ symbol: Symbol) -> Symbol? {
  
  - Returns: A new acosed symbol.
  */
-public func acos(_ symbol: Symbol) -> Symbol? {
+public func acos(_ symbolOpt: Symbol?) -> Symbol? {
+    // Handle optional inputs
+    guard let symbol = symbolOpt else {return nil}
+    
     let newSymbol = Symbol()
     
     do {
@@ -206,7 +241,10 @@ public func acos(_ symbol: Symbol) -> Symbol? {
  
  - Returns: A new ataned symbol.
  */
-public func atan(_ symbol: Symbol) -> Symbol? {
+public func atan(_ symbolOpt: Symbol?) -> Symbol? {
+    // Handle optional inputs
+    guard let symbol = symbolOpt else {return nil}
+    
     let newSymbol = Symbol()
     
     do {
@@ -224,7 +262,10 @@ public func atan(_ symbol: Symbol) -> Symbol? {
  
  - Returns: A new csced symbol.
  */
-public func csc(_ symbol: Symbol) -> Symbol? {
+public func csc(_ symbolOpt: Symbol?) -> Symbol? {
+    // Handle optional inputs
+    guard let symbol = symbolOpt else {return nil}
+    
     let newSymbol = Symbol()
     
     do {
@@ -242,7 +283,10 @@ public func csc(_ symbol: Symbol) -> Symbol? {
  
  - Returns: A new seced symbol.
  */
-public func sec(_ symbol: Symbol) -> Symbol? {
+public func sec(_ symbolOpt: Symbol?) -> Symbol? {
+    // Handle optional inputs
+    guard let symbol = symbolOpt else {return nil}
+    
     let newSymbol = Symbol()
     
     do {
@@ -260,7 +304,10 @@ public func sec(_ symbol: Symbol) -> Symbol? {
  
  - Returns: A new coted symbol.
  */
-public func cot(_ symbol: Symbol) -> Symbol? {
+public func cot(_ symbolOpt: Symbol?) -> Symbol? {
+    // Handle optional inputs
+    guard let symbol = symbolOpt else {return nil}
+    
     let newSymbol = Symbol()
     
     do {
@@ -278,7 +325,10 @@ public func cot(_ symbol: Symbol) -> Symbol? {
  
  - Returns: A new acsced symbol.
  */
-public func acsc(_ symbol: Symbol) -> Symbol? {
+public func acsc(_ symbolOpt: Symbol?) -> Symbol? {
+    // Handle optional inputs
+    guard let symbol = symbolOpt else {return nil}
+    
     let newSymbol = Symbol()
     
     do {
@@ -296,7 +346,10 @@ public func acsc(_ symbol: Symbol) -> Symbol? {
  
  - Returns: A new aseced symbol.
  */
-public func asec(_ symbol: Symbol) -> Symbol? {
+public func asec(_ symbolOpt: Symbol?) -> Symbol? {
+    // Handle optional inputs
+    guard let symbol = symbolOpt else {return nil}
+    
     let newSymbol = Symbol()
     
     do {
@@ -314,7 +367,10 @@ public func asec(_ symbol: Symbol) -> Symbol? {
  
  - Returns: A new acoted symbol.
  */
-public func acot(_ symbol: Symbol) -> Symbol? {
+public func acot(_ symbolOpt: Symbol?) -> Symbol? {
+    // Handle optional inputs
+    guard let symbol = symbolOpt else {return nil}
+    
     let newSymbol = Symbol()
     
     do {
@@ -332,7 +388,10 @@ public func acot(_ symbol: Symbol) -> Symbol? {
  
  - Returns: A new sinhed symbol.
  */
-public func sinh(_ symbol: Symbol) -> Symbol? {
+public func sinh(_ symbolOpt: Symbol?) -> Symbol? {
+    // Handle optional inputs
+    guard let symbol = symbolOpt else {return nil}
+    
     let newSymbol = Symbol()
     
     do {
@@ -350,7 +409,10 @@ public func sinh(_ symbol: Symbol) -> Symbol? {
  
  - Returns: A new coshed symbol.
  */
-public func cosh(_ symbol: Symbol) -> Symbol? {
+public func cosh(_ symbolOpt: Symbol?) -> Symbol? {
+    // Handle optional inputs
+    guard let symbol = symbolOpt else {return nil}
+    
     let newSymbol = Symbol()
     
     do {
@@ -368,7 +430,10 @@ public func cosh(_ symbol: Symbol) -> Symbol? {
  
  - Returns: A new tanhed symbol.
  */
-public func tanh(_ symbol: Symbol) -> Symbol? {
+public func tanh(_ symbolOpt: Symbol?) -> Symbol? {
+    // Handle optional inputs
+    guard let symbol = symbolOpt else {return nil}
+    
     let newSymbol = Symbol()
     
     do {
@@ -386,7 +451,10 @@ public func tanh(_ symbol: Symbol) -> Symbol? {
  
  - Returns: A new asinhed symbol.
  */
-public func asinh(_ symbol: Symbol) -> Symbol? {
+public func asinh(_ symbolOpt: Symbol?) -> Symbol? {
+    // Handle optional inputs
+    guard let symbol = symbolOpt else {return nil}
+    
     let newSymbol = Symbol()
     
     do {
@@ -404,7 +472,10 @@ public func asinh(_ symbol: Symbol) -> Symbol? {
  
  - Returns: A new acoshed symbol.
  */
-public func acosh(_ symbol: Symbol) -> Symbol? {
+public func acosh(_ symbolOpt: Symbol?) -> Symbol? {
+    // Handle optional inputs
+    guard let symbol = symbolOpt else {return nil}
+    
     let newSymbol = Symbol()
     
     do {
@@ -422,7 +493,10 @@ public func acosh(_ symbol: Symbol) -> Symbol? {
  
  - Returns: A new atanhed symbol.
  */
-public func atanh(_ symbol: Symbol) -> Symbol? {
+public func atanh(_ symbolOpt: Symbol?) -> Symbol? {
+    // Handle optional inputs
+    guard let symbol = symbolOpt else {return nil}
+    
     let newSymbol = Symbol()
     
     do {
@@ -440,7 +514,10 @@ public func atanh(_ symbol: Symbol) -> Symbol? {
  
  - Returns: A new csched symbol.
  */
-public func csch(_ symbol: Symbol) -> Symbol? {
+public func csch(_ symbolOpt: Symbol?) -> Symbol? {
+    // Handle optional inputs
+    guard let symbol = symbolOpt else {return nil}
+    
     let newSymbol = Symbol()
     
     do {
@@ -458,7 +535,10 @@ public func csch(_ symbol: Symbol) -> Symbol? {
  
  - Returns: A new seched symbol.
  */
-public func sech(_ symbol: Symbol) -> Symbol? {
+public func sech(_ symbolOpt: Symbol?) -> Symbol? {
+    // Handle optional inputs
+    guard let symbol = symbolOpt else {return nil}
+    
     let newSymbol = Symbol()
     
     do {
@@ -476,7 +556,10 @@ public func sech(_ symbol: Symbol) -> Symbol? {
  
  - Returns: A new cothed symbol.
  */
-public func coth(_ symbol: Symbol) -> Symbol? {
+public func coth(_ symbolOpt: Symbol?) -> Symbol? {
+    // Handle optional inputs
+    guard let symbol = symbolOpt else {return nil}
+    
     let newSymbol = Symbol()
     
     do {
@@ -494,7 +577,10 @@ public func coth(_ symbol: Symbol) -> Symbol? {
  
  - Returns: A new acsched symbol.
  */
-public func acsch(_ symbol: Symbol) -> Symbol? {
+public func acsch(_ symbolOpt: Symbol?) -> Symbol? {
+    // Handle optional inputs
+    guard let symbol = symbolOpt else {return nil}
+    
     let newSymbol = Symbol()
     
     do {
@@ -512,7 +598,10 @@ public func acsch(_ symbol: Symbol) -> Symbol? {
  
  - Returns: A new aseched symbol.
  */
-public func asech(_ symbol: Symbol) -> Symbol? {
+public func asech(_ symbolOpt: Symbol?) -> Symbol? {
+    // Handle optional inputs
+    guard let symbol = symbolOpt else {return nil}
+    
     let newSymbol = Symbol()
     
     do {
@@ -530,7 +619,10 @@ public func asech(_ symbol: Symbol) -> Symbol? {
  
  - Returns: A new acothed symbol.
  */
-public func acoth(_ symbol: Symbol) -> Symbol? {
+public func acoth(_ symbolOpt: Symbol?) -> Symbol? {
+    // Handle optional inputs
+    guard let symbol = symbolOpt else {return nil}
+    
     let newSymbol = Symbol()
     
     do {
@@ -548,7 +640,10 @@ public func acoth(_ symbol: Symbol) -> Symbol? {
  
  - Returns: A new lambertwed symbol.
  */
-public func lambertw(_ symbol: Symbol) -> Symbol? {
+public func lambertw(_ symbolOpt: Symbol?) -> Symbol? {
+    // Handle optional inputs
+    guard let symbol = symbolOpt else {return nil}
+    
     let newSymbol = Symbol()
     
     do {
@@ -566,7 +661,10 @@ public func lambertw(_ symbol: Symbol) -> Symbol? {
  
  - Returns: A new zetaed symbol.
  */
-public func zeta(_ symbol: Symbol) -> Symbol? {
+public func zeta(_ symbolOpt: Symbol?) -> Symbol? {
+    // Handle optional inputs
+    guard let symbol = symbolOpt else {return nil}
+    
     let newSymbol = Symbol()
     
     do {
@@ -584,7 +682,10 @@ public func zeta(_ symbol: Symbol) -> Symbol? {
  
  - Returns: A new dirichlet_etaed symbol.
  */
-public func dirichletEta(_ symbol: Symbol) -> Symbol? {
+public func dirichletEta(_ symbolOpt: Symbol?) -> Symbol? {
+    // Handle optional inputs
+    guard let symbol = symbolOpt else {return nil}
+    
     let newSymbol = Symbol()
     
     do {
@@ -602,7 +703,10 @@ public func dirichletEta(_ symbol: Symbol) -> Symbol? {
  
  - Returns: A new gammaed symbol.
  */
-public func gamma(_ symbol: Symbol) -> Symbol? {
+public func gamma(_ symbolOpt: Symbol?) -> Symbol? {
+    // Handle optional inputs
+    guard let symbol = symbolOpt else {return nil}
+    
     let newSymbol = Symbol()
     
     do {
@@ -620,7 +724,10 @@ public func gamma(_ symbol: Symbol) -> Symbol? {
  
  - Returns: A new loggammaed symbol.
  */
-public func loggamma(_ symbol: Symbol) -> Symbol? {
+public func loggamma(_ symbolOpt: Symbol?) -> Symbol? {
+    // Handle optional inputs
+    guard let symbol = symbolOpt else {return nil}
+    
     let newSymbol = Symbol()
     
     do {
@@ -638,7 +745,10 @@ public func loggamma(_ symbol: Symbol) -> Symbol? {
  
  - Returns: A new sqrted symbol.
  */
-public func sqrt(_ symbol: Symbol) -> Symbol? {
+public func sqrt(_ symbolOpt: Symbol?) -> Symbol? {
+    // Handle optional inputs
+    guard let symbol = symbolOpt else {return nil}
+    
     let newSymbol = Symbol()
     
     do {
@@ -656,7 +766,10 @@ public func sqrt(_ symbol: Symbol) -> Symbol? {
  
  - Returns: A new cbrted symbol.
  */
-public func cbrt(_ symbol: Symbol) -> Symbol? {
+public func cbrt(_ symbolOpt: Symbol?) -> Symbol? {
+    // Handle optional inputs
+    guard let symbol = symbolOpt else {return nil}
+    
     let newSymbol = Symbol()
     
     do {
@@ -674,7 +787,10 @@ public func cbrt(_ symbol: Symbol) -> Symbol? {
  
  - Returns: A new exped symbol.
  */
-public func exp(_ symbol: Symbol) -> Symbol? {
+public func exp(_ symbolOpt: Symbol?) -> Symbol? {
+    // Handle optional inputs
+    guard let symbol = symbolOpt else {return nil}
+    
     let newSymbol = Symbol()
     
     do {
@@ -692,7 +808,10 @@ public func exp(_ symbol: Symbol) -> Symbol? {
  
  - Returns: A new loged symbol.
  */
-public func log(_ symbol: Symbol) -> Symbol? {
+public func log(_ symbolOpt: Symbol?) -> Symbol? {
+    // Handle optional inputs
+    guard let symbol = symbolOpt else {return nil}
+    
     let newSymbol = Symbol()
     
     do {

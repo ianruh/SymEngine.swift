@@ -8,7 +8,7 @@ print("Expression is: \(exp)")
 
 print(diff(of: exp, withRespectTo: x)!.string!)
 
-let exp2 = (x+y**2 - 9)**2
+let exp2 = (x+y**2 - 9)**2 + Symbol("z")
 print(expand(exp2)!.string!)
 
 let exp3 = cos(x)*sin(x)*cos(x)*x
