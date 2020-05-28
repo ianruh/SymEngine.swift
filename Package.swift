@@ -11,8 +11,8 @@ let package = Package(
             name: "SymEngine",
             targets: ["SymEngine"]),
         .executable(
-            name: "testExec",
-            targets: ["TestExec"])
+            name: "example",
+            targets: ["Example"])
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -27,7 +27,7 @@ let package = Package(
             name: "SymEngineTests",
             dependencies: ["SymEngine"]),
         .target(
-            name: "TestExec",
+            name: "Example",
             dependencies: ["SymEngine"]),
         .systemLibrary(name: "CSymEngine", pkgConfig: "symengine")
     ]
