@@ -7,7 +7,9 @@ import CSymEngine
  */
 public class Symbol: CustomStringConvertible,
                     ExpressibleByFloatLiteral,
-                    ExpressibleByIntegerLiteral {
+                    ExpressibleByIntegerLiteral,
+                    Equatable {
+    
     
     //---------------------- Type Defs -----------------------
     
@@ -148,6 +150,14 @@ public class Symbol: CustomStringConvertible,
     internal init() {
         // Allocate new basic_struct on the heap
         self.pointer = basic_new_heap()
+    }
+    
+    /**
+    Free the memory for the basic structure.
+     */
+    deinit {
+        // Free the pointer
+        Symbol.free(self.pointer)
     }
     
     /**
@@ -294,6 +304,8 @@ public class Symbol: CustomStringConvertible,
     
     /**
     Initialize the `Symbol` by parsing the provided string. Results in an optional as the parsing may fail.
+     
+     It may be nice  to use `ExpressibleByStringLiteral`, but that doesn't allow a failable initializer.
 
     - Parameter parse: The `String` to parse.
     */
@@ -356,15 +368,6 @@ public class Symbol: CustomStringConvertible,
         }
     }
     
-    
-    /**
-    Free the memory for the basic structure.
-     */
-    deinit {
-        // Free the pointer
-        Symbol.free(self.pointer)
-    }
-    
     //-------------------- Static Functions --------------------
     
     /**
@@ -390,25 +393,33 @@ public class Symbol: CustomStringConvertible,
         // Return the copy
         return str
     }
-    
-    /**
-    Get an ascii art representation of SymEngine.
+}
 
-    - Returns: An ascii art representation of SymEngine.
-    */
-    public static var asciiArt: String? {
-        // Get a pointer to char* buff
-        let buffOpt: UnsafeMutablePointer<Int8>? = ascii_art_str()
-        if let buff = buffOpt {
-            // Copy the buff so we can free it
-            let str: String = String(cString: buff)
-            // Free the string buff
-            basic_str_free(buff)
-            // Return the copy
-            return str
-        }
-        
-        // Failure case
-        return nil
+/**
+Get an ascii art representation of SymEngine.
+ 
+ ```
+  _____           _____         _
+ |   __|_ _ _____|   __|___ ___|_|___ ___
+ |__   | | |     |   __|   | . | |   | -_|
+ |_____|_  |_|_|_|_____|_|_|_  |_|_|_|___|
+       |___|               |___|
+ ```
+
+- Returns: An ascii art representation of SymEngine.
+*/
+public var asciiArt: String? {
+    // Get a pointer to char* buff
+    let buffOpt: UnsafeMutablePointer<Int8>? = ascii_art_str()
+    if let buff = buffOpt {
+        // Copy the buff so we can free it
+        let str: String = String(cString: buff)
+        // Free the string buff
+        basic_str_free(buff)
+        // Return the copy
+        return str
     }
+    
+    // Failure case
+    return nil
 }

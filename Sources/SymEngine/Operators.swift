@@ -5,6 +5,13 @@
 //  Created by Ian Ruh on 4/24/20.
 //
 
+/*
+ The non-optional and optional functions are so we can avoid excessive
+ optional chaining when actually using them. The downside is the final
+ result of most calulcations will almost always be optional and need
+ to be unwrapped.
+ */
+
 import CSymEngine
 
 //------------------------- Custom Precedence --------------------
@@ -237,4 +244,13 @@ public func === (lhs: Symbol?, rhs: Symbol?) -> Bool {
         return false
     }
     return lhs!.pointer == rhs!.pointer
+}
+
+extension Symbol {
+    /**
+     Implement the required function for the `Equatable` protocol.
+     */
+    public static func == (lhs: Symbol, rhs: Symbol) -> Bool {
+        return basic_eq(lhs.pointer, rhs.pointer) == 1 ? true : false
+    }
 }

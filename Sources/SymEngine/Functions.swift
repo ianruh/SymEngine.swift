@@ -46,11 +46,11 @@ public func expand(_ symbolOpt: Symbol?) -> Symbol? {
 }
 
 /**
- neg the given symbol.
+ Negate the given symbol.
  
- - Parameters _: The symbol to neg.
+ - Parameters _: The symbol to negate.
  
- - Returns: A new neged symbol.
+ - Returns: A new negated symbol.
  */
 public func neg(_ symbolOpt: Symbol?) -> Symbol? {
     // Handle optional inputs
@@ -67,11 +67,11 @@ public func neg(_ symbolOpt: Symbol?) -> Symbol? {
 }
 
 /**
- abs the given symbol.
+ Take the  absolute value  of the given symbol.
  
- - Parameters _: The symbol to abs.
+ - Parameters _: The symbol to take the absolute value of.
  
- - Returns: A new absed symbol.
+ - Returns: A new absolute  valued symbol.
  */
 public func abs(_ symbolOpt: Symbol?) -> Symbol? {
     // Handle optional inputs
@@ -88,9 +88,9 @@ public func abs(_ symbolOpt: Symbol?) -> Symbol? {
 }
 
 /**
- erf the given symbol.
+ Error function of the given symbol.
  
- - Parameters _: The symbol to erf.
+ - Parameters _: The symbol to take the error function of.
  
  - Returns: A new erfed symbol.
  */
@@ -109,7 +109,7 @@ public func erf(_ symbolOpt: Symbol?) -> Symbol? {
 }
 
 /**
- erfc the given symbol.
+ Take the complemntary error function of the given symbol.
  
  - Parameters _: The symbol to erfc.
  
@@ -130,11 +130,11 @@ public func erfc(_ symbolOpt: Symbol?) -> Symbol? {
 }
 
 /**
- sin the given symbol.
+ Sine the given symbol.
  
- - Parameters _: The symbol to sin.
+ - Parameters _: The symbol to take sine of.
  
- - Returns: A new sined symbol.
+ - Returns: A new symbol.
  */
 public func sin(_ symbolOpt: Symbol?) -> Symbol? {
     // Handle optional inputs
@@ -151,11 +151,11 @@ public func sin(_ symbolOpt: Symbol?) -> Symbol? {
 }
 
 /**
- cos the given symbol.
+ Cosine the given symbol.
  
- - Parameters _: The symbol to cos.
+ - Parameters _: The symbol to take cosine of.
  
- - Returns: A new cosed symbol.
+ - Returns: A new symbol.
  */
 public func cos(_ symbolOpt: Symbol?) -> Symbol? {
     // Handle optional inputs
@@ -172,11 +172,11 @@ public func cos(_ symbolOpt: Symbol?) -> Symbol? {
 }
 
 /**
- tan the given symbol.
+ Tangent of the given symbol.
  
- - Parameters _: The symbol to tan.
+ - Parameters _: The symbol to take the tangent of.
  
- - Returns: A new taned symbol.
+ - Returns: A new symbol.
  */
 public func tan(_ symbolOpt: Symbol?) -> Symbol? {
     // Handle optional inputs
@@ -193,11 +193,11 @@ public func tan(_ symbolOpt: Symbol?) -> Symbol? {
 }
 
 /**
- asin the given symbol.
+ Arcsine of the given symbol.
  
- - Parameters _: The symbol to asin.
+ - Parameters _: The symbol to take arcsin of.
  
- - Returns: A new asined symbol.
+ - Returns: A new symbol.
  */
 public func asin(_ symbolOpt: Symbol?) -> Symbol? {
     // Handle optional inputs
@@ -214,11 +214,11 @@ public func asin(_ symbolOpt: Symbol?) -> Symbol? {
 }
 
 /**
- acos the given symbol.
+ Arccosine the given symbol.
  
- - Parameters _: The symbol to acos.
+ - Parameters _: The symbol to take the arccosine of.
  
- - Returns: A new acosed symbol.
+ - Returns: A new symbol.
  */
 public func acos(_ symbolOpt: Symbol?) -> Symbol? {
     // Handle optional inputs
@@ -235,11 +235,11 @@ public func acos(_ symbolOpt: Symbol?) -> Symbol? {
 }
 
 /**
- atan the given symbol.
+ Arctangent of the given symbol.
  
- - Parameters _: The symbol to atan.
+ - Parameters _: The symbol to take the arctangent of.
  
- - Returns: A new ataned symbol.
+ - Returns: A new symbol.
  */
 public func atan(_ symbolOpt: Symbol?) -> Symbol? {
     // Handle optional inputs
@@ -256,11 +256,11 @@ public func atan(_ symbolOpt: Symbol?) -> Symbol? {
 }
 
 /**
- csc the given symbol.
+ Cosecant of the given symbol.
  
- - Parameters _: The symbol to csc.
+ - Parameters _: The symbol to take cosecant of.
  
- - Returns: A new csced symbol.
+ - Returns: A new symbol.
  */
 public func csc(_ symbolOpt: Symbol?) -> Symbol? {
     // Handle optional inputs
@@ -277,11 +277,11 @@ public func csc(_ symbolOpt: Symbol?) -> Symbol? {
 }
 
 /**
- sec the given symbol.
+ Sec of the given symbol.
  
- - Parameters _: The symbol to sec.
+ - Parameters _: The symbol to sec of.
  
- - Returns: A new seced symbol.
+ - Returns: A new symbol.
  */
 public func sec(_ symbolOpt: Symbol?) -> Symbol? {
     // Handle optional inputs
@@ -298,11 +298,11 @@ public func sec(_ symbolOpt: Symbol?) -> Symbol? {
 }
 
 /**
- cot the given symbol.
+ Cot of the given symbol.
  
  - Parameters _: The symbol to cot.
  
- - Returns: A new coted symbol.
+ - Returns: A new symbol.
  */
 public func cot(_ symbolOpt: Symbol?) -> Symbol? {
     // Handle optional inputs
@@ -319,11 +319,11 @@ public func cot(_ symbolOpt: Symbol?) -> Symbol? {
 }
 
 /**
- acsc the given symbol.
+ Arccsc of the given symbol.
  
- - Parameters _: The symbol to acsc.
+ - Parameters _: The symbol to arccsc.
  
- - Returns: A new acsced symbol.
+ - Returns: A new symbol.
  */
 public func acsc(_ symbolOpt: Symbol?) -> Symbol? {
     // Handle optional inputs
@@ -340,11 +340,11 @@ public func acsc(_ symbolOpt: Symbol?) -> Symbol? {
 }
 
 /**
- asec the given symbol.
+ Arcsec the given symbol.
  
- - Parameters _: The symbol to asec.
+ - Parameters _: The symbol to take arcsec of.
  
- - Returns: A new aseced symbol.
+ - Returns: A new symbol.
  */
 public func asec(_ symbolOpt: Symbol?) -> Symbol? {
     // Handle optional inputs
@@ -361,11 +361,11 @@ public func asec(_ symbolOpt: Symbol?) -> Symbol? {
 }
 
 /**
- acot the given symbol.
+ Arccot of the given symbol.
  
- - Parameters _: The symbol to acot.
+ - Parameters _: The symbol to arccot  of.
  
- - Returns: A new acoted symbol.
+ - Returns: A new symbol.
  */
 public func acot(_ symbolOpt: Symbol?) -> Symbol? {
     // Handle optional inputs
@@ -382,11 +382,11 @@ public func acot(_ symbolOpt: Symbol?) -> Symbol? {
 }
 
 /**
- sinh the given symbol.
+ Sinh of the given symbol.
  
  - Parameters _: The symbol to sinh.
  
- - Returns: A new sinhed symbol.
+ - Returns: A new symbol.
  */
 public func sinh(_ symbolOpt: Symbol?) -> Symbol? {
     // Handle optional inputs
@@ -403,11 +403,11 @@ public func sinh(_ symbolOpt: Symbol?) -> Symbol? {
 }
 
 /**
- cosh the given symbol.
+ Cosh  of the given symbol.
  
  - Parameters _: The symbol to cosh.
  
- - Returns: A new coshed symbol.
+ - Returns: A new symbol.
  */
 public func cosh(_ symbolOpt: Symbol?) -> Symbol? {
     // Handle optional inputs
