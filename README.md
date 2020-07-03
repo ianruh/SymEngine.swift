@@ -1,4 +1,4 @@
-# SymEngine.Swift
+# SymEngine.Swift [![Build Status](https://travis-ci.org/ianruh/SymEngine.swift.svg?branch=master)](https://travis-ci.org/ianruh/SymEngine.swift)
 
  A swift wrapper for [SymEngine](https://github.com/symengine/symengine), a :zap:f​ast:zap: symbolic manipulation library, written in C++. This wrapper isn't complete yet, and PRs are welcome!
 
