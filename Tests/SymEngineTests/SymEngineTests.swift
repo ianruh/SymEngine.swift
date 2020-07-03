@@ -2,7 +2,7 @@ import XCTest
 @testable import SymEngine
 
 /**
- These tests are only really intended to test the wrapper, SymEngine itself.
+ These tests are only really intended to test the wrapper, not SymEngine itself.
  */
 final class SymEngineTests: XCTestCase {
     

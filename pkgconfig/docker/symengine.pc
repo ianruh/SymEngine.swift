@@ -1,4 +1,4 @@
-prefix=/opt/conda
+prefix=/root/miniconda3
 exec_prefix=${prefix}
 includedir=${prefix}/include
 libdir=${exec_prefix}/lib
@@ -7,4 +7,4 @@ Name: symengine
 Description: A fast symbolic manipulation library, written in C++
 Version: 0.5.0
 Cflags: -I${includedir}
-Libs: -Wl,-rpath,/opt/conda/lib
+Libs: -L${libdir} -lsymengine
