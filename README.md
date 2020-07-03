@@ -1,4 +1,4 @@
-# SymEngine.Swift [![Build Status](https://travis-ci.org/ianruh/SymEngine.swift.svg?branch=master)](https://travis-ci.org/ianruh/SymEngine.swift)
+# SymEngine.swift [![Build Status](https://travis-ci.org/ianruh/SymEngine.swift.svg?branch=master)](https://travis-ci.org/ianruh/SymEngine.swift)
 
  A swift wrapper for [SymEngine](https://github.com/symengine/symengine), a :zap:f​ast:zap: symbolic manipulation library, written in C++. This wrapper isn't complete yet, and PRs are welcome!
 
@@ -43,6 +43,8 @@ let expression: Symbol? = Symbol(parse: "3x^2 + 3*y")
 ```
 
 However, notice that some of the symbols returned are optional as it is possible an initializer may fail. While the operations and functions in this wrapper have been designed to work with both optionals and non-optionals (returning non-optionals when possible), the compiler will yell at you until attention is paid to the optionality of the values you are working with.
+
+Head over to the [documentation](https://ianruh.github.io/SymEngine.swift/) for more information.
 
 ## Installing
 
