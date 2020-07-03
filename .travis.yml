@@ -7,4 +7,4 @@ before_install:
   - docker build -t symengine.swift .
 
 script:
-  - swift test
+  - docker run symengine.swift swift test
