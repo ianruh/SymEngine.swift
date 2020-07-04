@@ -57,11 +57,13 @@ However, notice that some of the symbols returned are optional as it is possible
 Now we can do some math using these:
 
 ```swift
-let quadratic = x^2 + 4*x +4
+let quadratic = x**2 + 4*x +4
 let derivative = diff(of: quadratic, withRespectTo: x)!
 print(derivative)
 // 4 + 2*x
 ```
+
+Notice that the exponent is `**`, rather than `^`. Swift doesn't let you override the operators, so we can't copt the caret.
 
 Head over to the [documentation](https://ianruh.github.io/SymEngine.swift/) for more information.
 
