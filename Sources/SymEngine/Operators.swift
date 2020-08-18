@@ -47,12 +47,15 @@ The + operator adds two optional (or one optional and one not optional) symbols 
  - Returns: The new optional symbol.
 */
 public func + (lhs: Symbol?, rhs: Symbol?) -> Symbol? {
-    if(lhs == nil || rhs == nil) {
+    guard let lhsU = lhs else {
+        return nil
+    }
+    guard let rhsU = rhs else {
         return nil
     }
     
     let new = Symbol()
-    basic_add(new.pointer, lhs!.pointer, rhs!.pointer)
+    basic_add(new.pointer, lhsU.pointer, rhsU.pointer)
     return new
 }
 
@@ -82,12 +85,15 @@ The - operator subtracts two optional (or one optional and one not optional) sym
  - Returns: The new optional symbol.
 */
 public func - (lhs: Symbol?, rhs: Symbol?) -> Symbol? {
-    if(lhs == nil || rhs == nil) {
+    guard let lhsU = lhs else {
+        return nil
+    }
+    guard let rhsU = rhs else {
         return nil
     }
     
     let new = Symbol()
-    basic_sub(new.pointer, lhs!.pointer, rhs!.pointer)
+    basic_sub(new.pointer, lhsU.pointer, rhsU.pointer)
     return new
 }
 
@@ -117,12 +123,15 @@ The * operator multiplies two optional (or one optional and one not optional) sy
  - Returns: The new optional symbol.
 */
 public func * (lhs: Symbol?, rhs: Symbol?) -> Symbol? {
-    if(lhs == nil || rhs == nil) {
+    guard let lhsU = lhs else {
+        return nil
+    }
+    guard let rhsU = rhs else {
         return nil
     }
     
     let new = Symbol()
-    basic_mul(new.pointer, lhs!.pointer, rhs!.pointer)
+    basic_mul(new.pointer, lhsU.pointer, rhsU.pointer)
     return new
 }
 
@@ -152,12 +161,15 @@ The / operator divides two optional (or one optional and one not optional) symbo
  - Returns: The new optional symbol.
 */
 public func / (lhs: Symbol?, rhs: Symbol?) -> Symbol? {
-    if(lhs == nil || rhs == nil) {
+    guard let lhsU = lhs else {
+        return nil
+    }
+    guard let rhsU = rhs else {
         return nil
     }
     
     let new = Symbol()
-    basic_div(new.pointer, lhs!.pointer, rhs!.pointer)
+    basic_div(new.pointer, lhsU.pointer, rhsU.pointer)
     return new
 }
 
@@ -187,12 +199,15 @@ The ** operator takes the power two optional (or one optional and one not option
  - Returns: The new optional symbol.
 */
 public func ** (lhs: Symbol?, rhs: Symbol?) -> Symbol? {
-    if(lhs == nil || rhs == nil) {
+    guard let lhsU = lhs else {
+        return nil
+    }
+    guard let rhsU = rhs else {
         return nil
     }
     
     let new = Symbol()
-    basic_pow(new.pointer, lhs!.pointer, rhs!.pointer)
+    basic_pow(new.pointer, lhsU.pointer, rhsU.pointer)
     return new
 }
 
