@@ -101,6 +101,18 @@ Add the following to your dependencies:
 
 Check the tags for the most recent version.
 
+Then add SymEngine as a dependency for each necessary target:
+
+```swift
+.target(
+	...
+    .dependencies: [
+        .product(name: "SymEngine", package: "SymEngine.swift"),
+        ...
+    ]
+)
+```
+
 ## Notes
 
 I have only implemented wrappers for the basic functions so far (no matrices or sets yet). I intend to implement them, but only needed the basics to begin with.
