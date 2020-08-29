@@ -1,8 +1,8 @@
 import SymEngine
 
 print(SymEngine.asciiArt!)
-let x = Symbol(name: "x")!
-let y = Symbol(name: "y")!
+let x = Symbol(name: "x")
+let y = Symbol(name: "y")
 
 let result = diff(of: 3*y**2 - log(x)*cos(x), withRespectTo: x)!
 
