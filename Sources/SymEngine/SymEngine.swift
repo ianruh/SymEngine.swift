@@ -337,16 +337,11 @@ public class Symbol: CustomStringConvertible,
 
     - Parameter name: The name of the new symbol
     */
-    public convenience init?(name: String) {
+    public convenience init(name: String) {
         // Allocate heap
         self.init()
         // Assign to the string
-        do {
-            try checkReturn(symbol_set(self.pointer, name))
-        } catch {
-            // Fail if there is an error
-            return nil
-        }
+        symbol_set(self.pointer, name)
     }
     
     /**
@@ -356,16 +351,8 @@ public class Symbol: CustomStringConvertible,
 
     - Parameter _: The name of the new symbol
     */
-    public convenience init?(_ name: String) {
-        // Allocate heap
-        self.init()
-        // Assign to the string
-        do {
-            try checkReturn(symbol_set(self.pointer, name))
-        } catch {
-            // Fail if there is an error
-            return nil
-        }
+    public convenience init(_ name: String) {
+        self.init(name: name)
     }
     
     //-------------------- Static Functions --------------------

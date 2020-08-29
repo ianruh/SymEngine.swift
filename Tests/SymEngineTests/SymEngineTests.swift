@@ -6,9 +6,9 @@ import XCTest
  */
 final class SymEngineTests: XCTestCase {
     
-    var x: Symbol = Symbol("x")!
-    var x2: Symbol = Symbol("x")!
-    var y: Symbol = Symbol("y")!
+    var x: Symbol = Symbol("x")
+    var x2: Symbol = Symbol("x")
+    var y: Symbol = Symbol("y")
     
     func testBasics() {
         XCTAssertEqual(x, x)
