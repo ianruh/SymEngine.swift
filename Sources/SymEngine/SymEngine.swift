@@ -337,7 +337,7 @@ public class Symbol: CustomStringConvertible,
 
     - Parameter name: The name of the new symbol
     */
-    public convenience init(name: String) {
+    required public convenience init(name: String) {
         // Allocate heap
         self.init()
         // Assign to the string
