@@ -351,7 +351,7 @@ public class Symbol: CustomStringConvertible,
 
     - Parameter _: The name of the new symbol
     */
-    public convenience init(_ name: String) {
+    required public convenience init(_ name: String) {
         self.init(name: name)
     }
     
