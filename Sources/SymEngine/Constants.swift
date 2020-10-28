@@ -23,7 +23,7 @@ internal enum ConstantsEnum {
 }
 
 /**
-Struct for accessing fundemental constants.
+Struct for accessing fundamental constants.
  
  All of the members are declared static.
 */
@@ -72,7 +72,7 @@ public struct Constants {
     */
     public static let inf = Symbol.getConst(.inf)
     /**
-    A constantf or negative infinity.
+    A constant or negative infinity.
     */
     public static let negInf = Symbol.getConst(.negInf)
     /**
