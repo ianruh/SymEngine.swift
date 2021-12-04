@@ -1,11 +1,11 @@
 import CSymEngine
 
 /**
- The base class for all symbols in SymEngine.
+ The base class for all basics in SymEngine.
  
- Symbols are immutable, so you may as well use `let` for all declarations.
+ Basics are immutable, so you may as well use `let` for all declarations.
  */
-public class Symbol: CustomStringConvertible,
+public class Basic: CustomStringConvertible,
                     ExpressibleByFloatLiteral,
                     ExpressibleByIntegerLiteral,
                     Equatable {
@@ -24,16 +24,16 @@ public class Symbol: CustomStringConvertible,
     // Stores the pointer to the basic_struct object in memory
     internal var pointer: UnsafeMutablePointer<basic_struct>?
     
-    // Get a string representation of the Symbol.
+    // Get a string representation of the Basic.
     public var description: String {
         // Return string, or empty string if nil
         return self.string ?? ""
     }
     
     /**
-    Get a string representation of the `Symbol`.
+    Get a string representation of the `Basic`.
 
-    - Returns: A  string representing the `Symbol`.
+    - Returns: A  string representing the `Basic`.
     */
     public var string: String? {
         // Get a pointer to char* buff
@@ -52,12 +52,12 @@ public class Symbol: CustomStringConvertible,
     }
     
     /**
-    Get a latex representation of the `Symbol`.
+    Get a latex representation of the `Basic`.
      
-     This will return `nil` when a member of `Self` contains a custom constant. If you were intending to have a `Symbol` with a custom name,
+     This will return `nil` when a member of `Self` contains a custom constant. If you were intending to have a `Basic` with a custom name,
      then use `init?(name: String)` rather than `init?(const name: String)`.
 
-    - Returns: A  latex representing the `Symbol`.
+    - Returns: A  latex representing the `Basic`.
     */
     public var latex: String? {
         // Get a pointer to char* buff
@@ -76,12 +76,12 @@ public class Symbol: CustomStringConvertible,
     }
     
     /**
-    Get a mathml representation of the `Symbol`.
+    Get a mathml representation of the `Basic`.
      
-     This will return `nil` when a member of `Self` contains a custom constant. If you were intending to have a `Symbol` with a custom name,
+     This will return `nil` when a member of `Self` contains a custom constant. If you were intending to have a `Basic` with a custom name,
      then use `init?(name: String)` rather than `init?(const name: String)`.
 
-    - Returns: A  mathml representing the `Symbol`.
+    - Returns: A  mathml representing the `Basic`.
     */
     public var mathml: String? {
         // Get a pointer to char* buff
@@ -100,9 +100,9 @@ public class Symbol: CustomStringConvertible,
     }
     
     /**
-    Get a ccode representation of the `Symbol`.
+    Get a ccode representation of the `Basic`.
 
-    - Returns: A  ccode representing the `Symbol`.
+    - Returns: A  ccode representing the `Basic`.
     */
     public var ccode: String? {
         // Get a pointer to char* buff
@@ -121,9 +121,9 @@ public class Symbol: CustomStringConvertible,
     }
     
     /**
-    Get a jscode representation of the `Symbol`.
+    Get a jscode representation of the `Basic`.
 
-    - Returns: A jscode representing the `Symbol`.
+    - Returns: A jscode representing the `Basic`.
     */
     public var jscode: String? {
         // Get a pointer to char* buff
@@ -157,11 +157,11 @@ public class Symbol: CustomStringConvertible,
      */
     deinit {
         // Free the pointer
-        Symbol.free(self.pointer)
+        Basic.free(self.pointer)
     }
     
     /**
-    Initialize the `Symbol` using a `Double` real component, and an optional complex component.
+    Initialize the `Basic` using a `Double` real component, and an optional complex component.
 
     - Parameter _: The  value to initialize as.
 
@@ -170,7 +170,7 @@ public class Symbol: CustomStringConvertible,
     public convenience init(_ num: Double, i complexOpt: Double? = nil)  {
         // Allocate memory
         self.init()
-        // Set the Symbol value to num.
+        // Set the Basic value to num.
         // We intentionally don't use checkReturn here because throwing exceptions
         // in an initilizer is problematic (i.e. we can't conform to ExpressibleByFloatLiteral
         // if we do. We rely on catching it later if there is a problem.
@@ -180,10 +180,10 @@ public class Symbol: CustomStringConvertible,
         if let complex = complexOpt {
             // Initialize the complex component
             let doublePointer = basic_new_heap()
-            // doublePointe has symbolic magnitude double
+            // doublePointe has basicic magnitude double
             real_double_set_d(doublePointer, complex)
             
-            // Now have a complex symbolic value with magnitude complex
+            // Now have a complex basicic value with magnitude complex
             let complexPointer = basic_new_heap()
             basic_mul(complexPointer, doublePointer, Constants.I.pointer)
             
@@ -193,15 +193,15 @@ public class Symbol: CustomStringConvertible,
             
             // We can now free self.pointer, doublePointer, and complexPointer
             // while letting self.pointer = newPointer
-            Symbol.free(doublePointer)
-            Symbol.free(complexPointer)
-            Symbol.free(self.pointer)
+            Basic.free(doublePointer)
+            Basic.free(complexPointer)
+            Basic.free(self.pointer)
             self.pointer = newPointer
         }
     }
     
     /**
-    Initialize `Symbole` using an `Int` real component, and an optional complex component.
+    Initialize `Basice` using an `Int` real component, and an optional complex component.
 
     - Parameter _: The `Int` to initialize to.
     */
@@ -215,10 +215,10 @@ public class Symbol: CustomStringConvertible,
         if let complex = complexOpt {
             // Initialize the complex component
             let integerPointer = basic_new_heap()
-            // doublePointe has symbolic magnitude double
+            // doublePointe has basicic magnitude double
             integer_set_si(integerPointer, complex)
             
-            // Now have a complex symbolic value with magnitude complex
+            // Now have a complex basicic value with magnitude complex
             let complexPointer = basic_new_heap()
             basic_mul(complexPointer, integerPointer, Constants.I.pointer)
             
@@ -228,15 +228,15 @@ public class Symbol: CustomStringConvertible,
             
             // We can now free self.pointer, doublePointer, and complexPointer
             // while letting self.pointer = newPointer
-            Symbol.free(integerPointer)
-            Symbol.free(complexPointer)
-            Symbol.free(self.pointer)
+            Basic.free(integerPointer)
+            Basic.free(complexPointer)
+            Basic.free(self.pointer)
             self.pointer = newPointer
         }
     }
     
     /**
-    Initialize `Symbole` using an `UInt` real component, and an optional complex component.
+    Initialize `Basice` using an `UInt` real component, and an optional complex component.
 
     - Parameter _: The `UInt` to initialize to.
     */
@@ -250,10 +250,10 @@ public class Symbol: CustomStringConvertible,
         if let complex = complexOpt {
             // Initialize the complex component
             let integerPointer = basic_new_heap()
-            // doublePointe has symbolic magnitude double
+            // doublePointe has basicic magnitude double
             integer_set_ui(integerPointer, complex)
             
-            // Now have a complex symbolic value with magnitude complex
+            // Now have a complex basicic value with magnitude complex
             let complexPointer = basic_new_heap()
             basic_mul(complexPointer, integerPointer, Constants.I.pointer)
             
@@ -263,47 +263,47 @@ public class Symbol: CustomStringConvertible,
             
             // We can now free self.pointer, doublePointer, and complexPointer
             // while letting self.pointer = newPointer
-            Symbol.free(integerPointer)
-            Symbol.free(complexPointer)
-            Symbol.free(self.pointer)
+            Basic.free(integerPointer)
+            Basic.free(complexPointer)
+            Basic.free(self.pointer)
             self.pointer = newPointer
         }
     }
     
     /**
-    Initializer for `ExpressibleByFloatLiteral` protocol. Do not call this directly. This will initialize the symbol to a real value.
+    Initializer for `ExpressibleByFloatLiteral` protocol. Do not call this directly. This will initialize the basic to a real value.
      
      Use this initializer by simply doing:
      
      ```swift
-     let b: Symbol = 83.2
+     let b: Basic = 83.2
      ```
 
     - Parameter floatLiteral: The float literal to initialize to.
     */
-    required public convenience init(floatLiteral value: Symbol.FloatLiteralType)  {
+    required public convenience init(floatLiteral value: Basic.FloatLiteralType)  {
         // Call init(_ num: Double)
         self.init(value)
     }
     
     /**
-    Initializer for `ExpressibleByIntegerLiteral` protocol. Do not call this directly. This will initialize the symbol to a real value.
+    Initializer for `ExpressibleByIntegerLiteral` protocol. Do not call this directly. This will initialize the basic to a real value.
      
      Use  this initializer by simply doing:
      
      ```swift
-     let i: Symbol = 11
+     let i: Basic = 11
      ```
 
     - Parameter integerLiteral: The  integer  to  initialize to.
     */
-    required public convenience init(integerLiteral value: Symbol.IntegerLiteralType) {
+    required public convenience init(integerLiteral value: Basic.IntegerLiteralType) {
         // Call init(_ num: Int)
         self.init(value)
     }
     
     /**
-    Initialize the `Symbol` by parsing the provided string. Results in an optional as the parsing may fail.
+    Initialize the `Basic` by parsing the provided string. Results in an optional as the parsing may fail.
      
      It may be nice  to use `ExpressibleByStringLiteral`, but that doesn't allow a failable initializer.
 
@@ -333,9 +333,9 @@ public class Symbol: CustomStringConvertible,
     }
     
     /**
-    Initializer creates a new symbol with the given name.
+    Initializer creates a new basic with the given name.
 
-    - Parameter name: The name of the new symbol
+    - Parameter name: The name of the new basic
     */
     public convenience init(name: String) {
         // Allocate heap
@@ -345,11 +345,11 @@ public class Symbol: CustomStringConvertible,
     }
     
     /**
-    Initializer creates a new symbol with the given name.
+    Initializer creates a new basic with the given name.
      
      This initializer has the same functionality as `init?(name: String)`.
 
-    - Parameter _: The name of the new symbol
+    - Parameter _: The name of the new basic
     */
     public convenience init(_ name: String) {
         self.init(name: name)

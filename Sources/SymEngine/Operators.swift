@@ -29,24 +29,24 @@ precedencegroup ExponentiationPrecedence {
 infix operator ** : ExponentiationPrecedence
 infix operator **= : AssignmentPrecedence
 
-//------------------------- Symbol Extension --------------------
+//------------------------- Basic Extension --------------------
     
 /**
- The + operator adds two symbols.
- - Returns: The new symbol.
+ The + operator adds two basics.
+ - Returns: The new basic.
  */
-public func + (lhs: Symbol, rhs: Symbol) -> Symbol {
-    let new = Symbol()
+public func + (lhs: Basic, rhs: Basic) -> Basic {
+    let new = Basic()
     basic_add(new.pointer, lhs.pointer, rhs.pointer)
     return new
 }
 
 /**
-The + operator adds two optional (or one optional and one not optional) symbols and returns an optional.
+The + operator adds two optional (or one optional and one not optional) basics and returns an optional.
  
- - Returns: The new optional symbol.
+ - Returns: The new optional basic.
 */
-public func + (lhs: Symbol?, rhs: Symbol?) -> Symbol? {
+public func + (lhs: Basic?, rhs: Basic?) -> Basic? {
     guard let lhsU = lhs else {
         return nil
     }
@@ -54,37 +54,37 @@ public func + (lhs: Symbol?, rhs: Symbol?) -> Symbol? {
         return nil
     }
     
-    let new = Symbol()
+    let new = Basic()
     basic_add(new.pointer, lhsU.pointer, rhsU.pointer)
     return new
 }
 
 /**
-The += operator adds two symbols while mutating the first.
+The += operator adds two basics while mutating the first.
 */
-public func += (lhs: inout Symbol, rhs: Symbol) {
-    let new = Symbol()
+public func += (lhs: inout Basic, rhs: Basic) {
+    let new = Basic()
     basic_add(new.pointer, lhs.pointer, rhs.pointer)
     lhs = new
 }
 
 /**
-The - operator subtracts two symbols.
+The - operator subtracts two basics.
  
- - Returns: The new symbol.
+ - Returns: The new basic.
 */
-public func - (lhs: Symbol, rhs: Symbol) -> Symbol {
-    let new = Symbol()
+public func - (lhs: Basic, rhs: Basic) -> Basic {
+    let new = Basic()
     basic_sub(new.pointer, lhs.pointer, rhs.pointer)
     return new
 }
 
 /**
-The - operator subtracts two optional (or one optional and one not optional) symbols and returns an optional.
+The - operator subtracts two optional (or one optional and one not optional) basics and returns an optional.
  
- - Returns: The new optional symbol.
+ - Returns: The new optional basic.
 */
-public func - (lhs: Symbol?, rhs: Symbol?) -> Symbol? {
+public func - (lhs: Basic?, rhs: Basic?) -> Basic? {
     guard let lhsU = lhs else {
         return nil
     }
@@ -92,37 +92,37 @@ public func - (lhs: Symbol?, rhs: Symbol?) -> Symbol? {
         return nil
     }
     
-    let new = Symbol()
+    let new = Basic()
     basic_sub(new.pointer, lhsU.pointer, rhsU.pointer)
     return new
 }
 
 /**
-The -= operator subtracts two symbols while mutating the first.
+The -= operator subtracts two basics while mutating the first.
 */
-public func -= (lhs: inout Symbol, rhs: Symbol) {
-    let new = Symbol()
+public func -= (lhs: inout Basic, rhs: Basic) {
+    let new = Basic()
     basic_sub(new.pointer, lhs.pointer, rhs.pointer)
     lhs = new
 }
 
 /**
-The * operator multiplies two symbols.
+The * operator multiplies two basics.
  
- - Returns: The new symbol.
+ - Returns: The new basic.
 */
-public func * (lhs: Symbol, rhs: Symbol) -> Symbol {
-    let new = Symbol()
+public func * (lhs: Basic, rhs: Basic) -> Basic {
+    let new = Basic()
     basic_mul(new.pointer, lhs.pointer, rhs.pointer)
     return new
 }
 
 /**
-The * operator multiplies two optional (or one optional and one not optional) symbols and returns an optional.
+The * operator multiplies two optional (or one optional and one not optional) basics and returns an optional.
  
- - Returns: The new optional symbol.
+ - Returns: The new optional basic.
 */
-public func * (lhs: Symbol?, rhs: Symbol?) -> Symbol? {
+public func * (lhs: Basic?, rhs: Basic?) -> Basic? {
     guard let lhsU = lhs else {
         return nil
     }
@@ -130,37 +130,37 @@ public func * (lhs: Symbol?, rhs: Symbol?) -> Symbol? {
         return nil
     }
     
-    let new = Symbol()
+    let new = Basic()
     basic_mul(new.pointer, lhsU.pointer, rhsU.pointer)
     return new
 }
 
 /**
-The *= operator multiplies two symbols while mutating the first.
+The *= operator multiplies two basics while mutating the first.
 */
-public func *= (lhs: inout Symbol, rhs: Symbol) {
-    let new = Symbol()
+public func *= (lhs: inout Basic, rhs: Basic) {
+    let new = Basic()
     basic_mul(new.pointer, lhs.pointer, rhs.pointer)
     lhs = new
 }
 
 /**
-The / operator divides two symbols.
+The / operator divides two basics.
  
- - Returns: The new symbol.
+ - Returns: The new basic.
 */
-public func / (lhs: Symbol, rhs: Symbol) -> Symbol {
-    let new = Symbol()
+public func / (lhs: Basic, rhs: Basic) -> Basic {
+    let new = Basic()
     basic_div(new.pointer, lhs.pointer, rhs.pointer)
     return new
 }
 
 /**
-The / operator divides two optional (or one optional and one not optional) symbols and returns an optional.
+The / operator divides two optional (or one optional and one not optional) basics and returns an optional.
  
- - Returns: The new optional symbol.
+ - Returns: The new optional basic.
 */
-public func / (lhs: Symbol?, rhs: Symbol?) -> Symbol? {
+public func / (lhs: Basic?, rhs: Basic?) -> Basic? {
     guard let lhsU = lhs else {
         return nil
     }
@@ -168,16 +168,16 @@ public func / (lhs: Symbol?, rhs: Symbol?) -> Symbol? {
         return nil
     }
     
-    let new = Symbol()
+    let new = Basic()
     basic_div(new.pointer, lhsU.pointer, rhsU.pointer)
     return new
 }
 
 /**
-The /= operator divides two symbols while mutating the first.
+The /= operator divides two basics while mutating the first.
 */
-public func /= (lhs: inout Symbol, rhs: Symbol) {
-    let new = Symbol()
+public func /= (lhs: inout Basic, rhs: Basic) {
+    let new = Basic()
     basic_div(new.pointer, lhs.pointer, rhs.pointer)
     lhs = new
 }
@@ -185,20 +185,20 @@ public func /= (lhs: inout Symbol, rhs: Symbol) {
 /**
 The ** operator takes the left side to the power of the right side.
  
- - Returns: The new symbol.
+ - Returns: The new basic.
 */
-public func ** (lhs: Symbol, rhs: Symbol) -> Symbol {
-    let new = Symbol()
+public func ** (lhs: Basic, rhs: Basic) -> Basic {
+    let new = Basic()
     basic_pow(new.pointer, lhs.pointer, rhs.pointer)
     return new
 }
 
 /**
-The ** operator takes the power two optional (or one optional and one not optional) symbols and returns an optional.
+The ** operator takes the power two optional (or one optional and one not optional) basics and returns an optional.
  
- - Returns: The new optional symbol.
+ - Returns: The new optional basic.
 */
-public func ** (lhs: Symbol?, rhs: Symbol?) -> Symbol? {
+public func ** (lhs: Basic?, rhs: Basic?) -> Basic? {
     guard let lhsU = lhs else {
         return nil
     }
@@ -206,7 +206,7 @@ public func ** (lhs: Symbol?, rhs: Symbol?) -> Symbol? {
         return nil
     }
     
-    let new = Symbol()
+    let new = Basic()
     basic_pow(new.pointer, lhsU.pointer, rhsU.pointer)
     return new
 }
@@ -214,14 +214,14 @@ public func ** (lhs: Symbol?, rhs: Symbol?) -> Symbol? {
 /**
 The **= operator takes the left side to the power of the right side while mutating the left side.
 */
-public func **= (lhs: inout Symbol, rhs: Symbol) {
-    let new = Symbol()
+public func **= (lhs: inout Basic, rhs: Basic) {
+    let new = Basic()
     basic_pow(new.pointer, lhs.pointer, rhs.pointer)
     lhs = new
 }
 
 /**
-The == operator compares the symbolic equality of two symbols.
+The == operator compares the basicic equality of two basics.
  
  If either the left side or  the right side is nil, then  returns false.
  
@@ -238,7 +238,7 @@ The == operator compares the symbolic equality of two symbols.
  
  - Returns: Whether the left side is logically equal to the right side.
 */
-public func == (lhs: Symbol?, rhs: Symbol?) -> Bool {
+public func == (lhs: Basic?, rhs: Basic?) -> Bool {
     if let lhs_nonOpt = lhs {
         if let rhs_nonOpt = rhs {
             return basic_eq(lhs_nonOpt.pointer, rhs_nonOpt.pointer) == 1 ? true : false
@@ -248,24 +248,24 @@ public func == (lhs: Symbol?, rhs: Symbol?) -> Bool {
 }
 
 /**
-The === operator compares two symbols and returns whether they refer to the same symbol object.
+The === operator compares two basics and returns whether they refer to the same basic object.
  
  If either the left side or  the right side is nil, then  returns false.
  
- - Returns: Whether the left side is the same symbol the right side.
+ - Returns: Whether the left side is the same basic the right side.
 */
-public func === (lhs: Symbol?, rhs: Symbol?) -> Bool {
+public func === (lhs: Basic?, rhs: Basic?) -> Bool {
     if(lhs == nil || rhs == nil) {
         return false
     }
     return lhs!.pointer == rhs!.pointer
 }
 
-extension Symbol {
+extension Basic {
     /**
      Implement the required function for the `Equatable` protocol.
      */
-    public static func == (lhs: Symbol, rhs: Symbol) -> Bool {
+    public static func == (lhs: Basic, rhs: Basic) -> Bool {
         return basic_eq(lhs.pointer, rhs.pointer) == 1 ? true : false
     }
 }

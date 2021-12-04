@@ -6,13 +6,13 @@ import XCTest
  */
 final class SymEngineTests: XCTestCase {
     
-    var x: Symbol = Symbol("x")
-    var x2: Symbol = Symbol("x")
-    var y: Symbol = Symbol("y")
+    var x: Basic = Basic("x")
+    var x2: Basic = Basic("x")
+    var y: Basic = Basic("y")
     
     func testBasics() {
         XCTAssertEqual(x, x)
-        XCTAssertEqual(Symbol(0), Symbol(0))
+        XCTAssertEqual(Basic(0), Basic(0))
         XCTAssertTrue(x == x)
         
         XCTAssertNotEqual(x, y)
@@ -23,8 +23,8 @@ final class SymEngineTests: XCTestCase {
         XCTAssertEqual(x-x, 0)
         XCTAssertEqual(x+y, y+x)
         XCTAssertEqual(x-x, y-y)
-        XCTAssertEqual(x, x + Symbol(0))
-        XCTAssertEqual(x, x + Symbol(0.0))
+        XCTAssertEqual(x, x + Basic(0))
+        XCTAssertEqual(x, x + Basic(0.0))
         
         XCTAssertNotEqual(x-x, x+x)
         XCTAssertNotEqual(x-(x+x), x-x+x)
@@ -32,7 +32,7 @@ final class SymEngineTests: XCTestCase {
     
     func testMultiplyDivide() {
         XCTAssertEqual(2*x, x+x)
-        XCTAssertEqual(x/x, Symbol(1))
+        XCTAssertEqual(x/x, Basic(1))
         XCTAssertEqual(x*x, x**2)
         
         XCTAssertNotEqual(x/y, y/x)
@@ -40,8 +40,8 @@ final class SymEngineTests: XCTestCase {
     
     func testPower() {
         XCTAssertEqual(x*x, x**2)
-        XCTAssertEqual(x**0, Symbol(1))
-        XCTAssertEqual(x*x/x**2, Symbol(1))
+        XCTAssertEqual(x**0, Basic(1))
+        XCTAssertEqual(x*x/x**2, Basic(1))
         
         XCTAssertNotEqual(x**y, y**x)
     }

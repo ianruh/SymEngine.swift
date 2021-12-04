@@ -1,824 +1,824 @@
 import CSymEngine
 
 /**
-Take the derivative of a symbol with  respect to the given symbol.
+Take the derivative of a basic with  respect to the given basic.
  
  This function is non-mutating.
 
-- Parameter withRespectTo: The symbol with respect to the derivative should be taken.
+- Parameter withRespectTo: The basic with respect to the derivative should be taken.
 
-- Returns: A new symbol representing the derivative of the current  `Symbol`.
+- Returns: A new basic representing the derivative of the current  `Basic`.
 */
-public func diff(of symbol: Symbol?, withRespectTo dSymbol: Symbol? ) -> Symbol? {
+public func diff(of basic: Basic?, withRespectTo dBasic: Basic? ) -> Basic? {
     // Handle optional inputs
-    if(symbol == nil || dSymbol == nil) {
+    if(basic == nil || dBasic == nil) {
         return nil
     }
     
-    let newSymbol = Symbol()
+    let newBasic = Basic()
     do {
-        try checkReturn(basic_diff(newSymbol.pointer, symbol!.pointer, dSymbol!.pointer))
+        try checkReturn(basic_diff(newBasic.pointer, basic!.pointer, dBasic!.pointer))
     } catch {
         return nil
     }
-    return newSymbol
+    return newBasic
 }
 
 /**
- Expand the given symbol.
+ Expand the given basic.
  
- - Parameters _: The symbol to expand.
+ - Parameters _: The basic to expand.
  
- - Returns: A new expanded symbol.
+ - Returns: A new expanded basic.
  */
-public func expand(_ symbolOpt: Symbol?) -> Symbol? {
+public func expand(_ basicOpt: Basic?) -> Basic? {
     // Handle optional inputs
-    guard let symbol = symbolOpt else {return nil}
+    guard let basic = basicOpt else {return nil}
     
-    let newSymbol = Symbol()
+    let newBasic = Basic()
     
     do {
-        try checkReturn(basic_expand(newSymbol.pointer, symbol.pointer))
+        try checkReturn(basic_expand(newBasic.pointer, basic.pointer))
     } catch {
         return nil
     }
-    return newSymbol
+    return newBasic
 }
 
 /**
- Negate the given symbol.
+ Negate the given basic.
  
- - Parameters _: The symbol to negate.
+ - Parameters _: The basic to negate.
  
- - Returns: A new negated symbol.
+ - Returns: A new negated basic.
  */
-public func neg(_ symbolOpt: Symbol?) -> Symbol? {
+public func neg(_ basicOpt: Basic?) -> Basic? {
     // Handle optional inputs
-    guard let symbol = symbolOpt else {return nil}
+    guard let basic = basicOpt else {return nil}
     
-    let newSymbol = Symbol()
+    let newBasic = Basic()
     
     do {
-        try checkReturn(basic_neg(newSymbol.pointer, symbol.pointer))
+        try checkReturn(basic_neg(newBasic.pointer, basic.pointer))
     } catch {
         return nil
     }
-    return newSymbol
+    return newBasic
 }
 
 /**
- Take the  absolute value  of the given symbol.
+ Take the  absolute value  of the given basic.
  
- - Parameters _: The symbol to take the absolute value of.
+ - Parameters _: The basic to take the absolute value of.
  
- - Returns: A new absolute  valued symbol.
+ - Returns: A new absolute  valued basic.
  */
-public func abs(_ symbolOpt: Symbol?) -> Symbol? {
+public func abs(_ basicOpt: Basic?) -> Basic? {
     // Handle optional inputs
-    guard let symbol = symbolOpt else {return nil}
+    guard let basic = basicOpt else {return nil}
     
-    let newSymbol = Symbol()
+    let newBasic = Basic()
     
     do {
-        try checkReturn(basic_abs(newSymbol.pointer, symbol.pointer))
+        try checkReturn(basic_abs(newBasic.pointer, basic.pointer))
     } catch {
         return nil
     }
-    return newSymbol
+    return newBasic
 }
 
 /**
- Error function of the given symbol.
+ Error function of the given basic.
  
- - Parameters _: The symbol to take the error function of.
+ - Parameters _: The basic to take the error function of.
  
- - Returns: A new erfed symbol.
+ - Returns: A new erfed basic.
  */
-public func erf(_ symbolOpt: Symbol?) -> Symbol? {
+public func erf(_ basicOpt: Basic?) -> Basic? {
     // Handle optional inputs
-    guard let symbol = symbolOpt else {return nil}
+    guard let basic = basicOpt else {return nil}
     
-    let newSymbol = Symbol()
+    let newBasic = Basic()
     
     do {
-        try checkReturn(basic_erf(newSymbol.pointer, symbol.pointer))
+        try checkReturn(basic_erf(newBasic.pointer, basic.pointer))
     } catch {
         return nil
     }
-    return newSymbol
+    return newBasic
 }
 
 /**
- Take the complemntary error function of the given symbol.
+ Take the complemntary error function of the given basic.
  
- - Parameters _: The symbol to erfc.
+ - Parameters _: The basic to erfc.
  
- - Returns: A new erfced symbol.
+ - Returns: A new erfced basic.
  */
-public func erfc(_ symbolOpt: Symbol?) -> Symbol? {
+public func erfc(_ basicOpt: Basic?) -> Basic? {
     // Handle optional inputs
-    guard let symbol = symbolOpt else {return nil}
+    guard let basic = basicOpt else {return nil}
     
-    let newSymbol = Symbol()
+    let newBasic = Basic()
     
     do {
-        try checkReturn(basic_erfc(newSymbol.pointer, symbol.pointer))
+        try checkReturn(basic_erfc(newBasic.pointer, basic.pointer))
     } catch {
         return nil
     }
-    return newSymbol
+    return newBasic
 }
 
 /**
- Sine the given symbol.
+ Sine the given basic.
  
- - Parameters _: The symbol to take sine of.
+ - Parameters _: The basic to take sine of.
  
- - Returns: A new symbol.
+ - Returns: A new basic.
  */
-public func sin(_ symbolOpt: Symbol?) -> Symbol? {
+public func sin(_ basicOpt: Basic?) -> Basic? {
     // Handle optional inputs
-    guard let symbol = symbolOpt else {return nil}
+    guard let basic = basicOpt else {return nil}
     
-    let newSymbol = Symbol()
+    let newBasic = Basic()
     
     do {
-        try checkReturn(basic_sin(newSymbol.pointer, symbol.pointer))
+        try checkReturn(basic_sin(newBasic.pointer, basic.pointer))
     } catch {
         return nil
     }
-    return newSymbol
+    return newBasic
 }
 
 /**
- Cosine the given symbol.
+ Cosine the given basic.
  
- - Parameters _: The symbol to take cosine of.
+ - Parameters _: The basic to take cosine of.
  
- - Returns: A new symbol.
+ - Returns: A new basic.
  */
-public func cos(_ symbolOpt: Symbol?) -> Symbol? {
+public func cos(_ basicOpt: Basic?) -> Basic? {
     // Handle optional inputs
-    guard let symbol = symbolOpt else {return nil}
+    guard let basic = basicOpt else {return nil}
     
-    let newSymbol = Symbol()
+    let newBasic = Basic()
     
     do {
-        try checkReturn(basic_cos(newSymbol.pointer, symbol.pointer))
+        try checkReturn(basic_cos(newBasic.pointer, basic.pointer))
     } catch {
         return nil
     }
-    return newSymbol
+    return newBasic
 }
 
 /**
- Tangent of the given symbol.
+ Tangent of the given basic.
  
- - Parameters _: The symbol to take the tangent of.
+ - Parameters _: The basic to take the tangent of.
  
- - Returns: A new symbol.
+ - Returns: A new basic.
  */
-public func tan(_ symbolOpt: Symbol?) -> Symbol? {
+public func tan(_ basicOpt: Basic?) -> Basic? {
     // Handle optional inputs
-    guard let symbol = symbolOpt else {return nil}
+    guard let basic = basicOpt else {return nil}
     
-    let newSymbol = Symbol()
+    let newBasic = Basic()
     
     do {
-        try checkReturn(basic_tan(newSymbol.pointer, symbol.pointer))
+        try checkReturn(basic_tan(newBasic.pointer, basic.pointer))
     } catch {
         return nil
     }
-    return newSymbol
+    return newBasic
 }
 
 /**
- Arcsine of the given symbol.
+ Arcsine of the given basic.
  
- - Parameters _: The symbol to take arcsin of.
+ - Parameters _: The basic to take arcsin of.
  
- - Returns: A new symbol.
+ - Returns: A new basic.
  */
-public func asin(_ symbolOpt: Symbol?) -> Symbol? {
+public func asin(_ basicOpt: Basic?) -> Basic? {
     // Handle optional inputs
-    guard let symbol = symbolOpt else {return nil}
+    guard let basic = basicOpt else {return nil}
     
-    let newSymbol = Symbol()
+    let newBasic = Basic()
     
     do {
-        try checkReturn(basic_asin(newSymbol.pointer, symbol.pointer))
+        try checkReturn(basic_asin(newBasic.pointer, basic.pointer))
     } catch {
         return nil
     }
-    return newSymbol
+    return newBasic
 }
 
 /**
- Arccosine the given symbol.
+ Arccosine the given basic.
  
- - Parameters _: The symbol to take the arccosine of.
+ - Parameters _: The basic to take the arccosine of.
  
- - Returns: A new symbol.
+ - Returns: A new basic.
  */
-public func acos(_ symbolOpt: Symbol?) -> Symbol? {
+public func acos(_ basicOpt: Basic?) -> Basic? {
     // Handle optional inputs
-    guard let symbol = symbolOpt else {return nil}
+    guard let basic = basicOpt else {return nil}
     
-    let newSymbol = Symbol()
+    let newBasic = Basic()
     
     do {
-        try checkReturn(basic_acos(newSymbol.pointer, symbol.pointer))
+        try checkReturn(basic_acos(newBasic.pointer, basic.pointer))
     } catch {
         return nil
     }
-    return newSymbol
+    return newBasic
 }
 
 /**
- Arctangent of the given symbol.
+ Arctangent of the given basic.
  
- - Parameters _: The symbol to take the arctangent of.
+ - Parameters _: The basic to take the arctangent of.
  
- - Returns: A new symbol.
+ - Returns: A new basic.
  */
-public func atan(_ symbolOpt: Symbol?) -> Symbol? {
+public func atan(_ basicOpt: Basic?) -> Basic? {
     // Handle optional inputs
-    guard let symbol = symbolOpt else {return nil}
+    guard let basic = basicOpt else {return nil}
     
-    let newSymbol = Symbol()
+    let newBasic = Basic()
     
     do {
-        try checkReturn(basic_atan(newSymbol.pointer, symbol.pointer))
+        try checkReturn(basic_atan(newBasic.pointer, basic.pointer))
     } catch {
         return nil
     }
-    return newSymbol
+    return newBasic
 }
 
 /**
- Cosecant of the given symbol.
+ Cosecant of the given basic.
  
- - Parameters _: The symbol to take cosecant of.
+ - Parameters _: The basic to take cosecant of.
  
- - Returns: A new symbol.
+ - Returns: A new basic.
  */
-public func csc(_ symbolOpt: Symbol?) -> Symbol? {
+public func csc(_ basicOpt: Basic?) -> Basic? {
     // Handle optional inputs
-    guard let symbol = symbolOpt else {return nil}
+    guard let basic = basicOpt else {return nil}
     
-    let newSymbol = Symbol()
+    let newBasic = Basic()
     
     do {
-        try checkReturn(basic_csc(newSymbol.pointer, symbol.pointer))
+        try checkReturn(basic_csc(newBasic.pointer, basic.pointer))
     } catch {
         return nil
     }
-    return newSymbol
+    return newBasic
 }
 
 /**
- Sec of the given symbol.
+ Sec of the given basic.
  
- - Parameters _: The symbol to sec of.
+ - Parameters _: The basic to sec of.
  
- - Returns: A new symbol.
+ - Returns: A new basic.
  */
-public func sec(_ symbolOpt: Symbol?) -> Symbol? {
+public func sec(_ basicOpt: Basic?) -> Basic? {
     // Handle optional inputs
-    guard let symbol = symbolOpt else {return nil}
+    guard let basic = basicOpt else {return nil}
     
-    let newSymbol = Symbol()
+    let newBasic = Basic()
     
     do {
-        try checkReturn(basic_sec(newSymbol.pointer, symbol.pointer))
+        try checkReturn(basic_sec(newBasic.pointer, basic.pointer))
     } catch {
         return nil
     }
-    return newSymbol
+    return newBasic
 }
 
 /**
- Cot of the given symbol.
+ Cot of the given basic.
  
- - Parameters _: The symbol to cot.
+ - Parameters _: The basic to cot.
  
- - Returns: A new symbol.
+ - Returns: A new basic.
  */
-public func cot(_ symbolOpt: Symbol?) -> Symbol? {
+public func cot(_ basicOpt: Basic?) -> Basic? {
     // Handle optional inputs
-    guard let symbol = symbolOpt else {return nil}
+    guard let basic = basicOpt else {return nil}
     
-    let newSymbol = Symbol()
+    let newBasic = Basic()
     
     do {
-        try checkReturn(basic_cot(newSymbol.pointer, symbol.pointer))
+        try checkReturn(basic_cot(newBasic.pointer, basic.pointer))
     } catch {
         return nil
     }
-    return newSymbol
+    return newBasic
 }
 
 /**
- Arccsc of the given symbol.
+ Arccsc of the given basic.
  
- - Parameters _: The symbol to arccsc.
+ - Parameters _: The basic to arccsc.
  
- - Returns: A new symbol.
+ - Returns: A new basic.
  */
-public func acsc(_ symbolOpt: Symbol?) -> Symbol? {
+public func acsc(_ basicOpt: Basic?) -> Basic? {
     // Handle optional inputs
-    guard let symbol = symbolOpt else {return nil}
+    guard let basic = basicOpt else {return nil}
     
-    let newSymbol = Symbol()
+    let newBasic = Basic()
     
     do {
-        try checkReturn(basic_acsc(newSymbol.pointer, symbol.pointer))
+        try checkReturn(basic_acsc(newBasic.pointer, basic.pointer))
     } catch {
         return nil
     }
-    return newSymbol
+    return newBasic
 }
 
 /**
- Arcsec the given symbol.
+ Arcsec the given basic.
  
- - Parameters _: The symbol to take arcsec of.
+ - Parameters _: The basic to take arcsec of.
  
- - Returns: A new symbol.
+ - Returns: A new basic.
  */
-public func asec(_ symbolOpt: Symbol?) -> Symbol? {
+public func asec(_ basicOpt: Basic?) -> Basic? {
     // Handle optional inputs
-    guard let symbol = symbolOpt else {return nil}
+    guard let basic = basicOpt else {return nil}
     
-    let newSymbol = Symbol()
+    let newBasic = Basic()
     
     do {
-        try checkReturn(basic_asec(newSymbol.pointer, symbol.pointer))
+        try checkReturn(basic_asec(newBasic.pointer, basic.pointer))
     } catch {
         return nil
     }
-    return newSymbol
+    return newBasic
 }
 
 /**
- Arccot of the given symbol.
+ Arccot of the given basic.
  
- - Parameters _: The symbol to arccot  of.
+ - Parameters _: The basic to arccot  of.
  
- - Returns: A new symbol.
+ - Returns: A new basic.
  */
-public func acot(_ symbolOpt: Symbol?) -> Symbol? {
+public func acot(_ basicOpt: Basic?) -> Basic? {
     // Handle optional inputs
-    guard let symbol = symbolOpt else {return nil}
+    guard let basic = basicOpt else {return nil}
     
-    let newSymbol = Symbol()
+    let newBasic = Basic()
     
     do {
-        try checkReturn(basic_acot(newSymbol.pointer, symbol.pointer))
+        try checkReturn(basic_acot(newBasic.pointer, basic.pointer))
     } catch {
         return nil
     }
-    return newSymbol
+    return newBasic
 }
 
 /**
- Sinh of the given symbol.
+ Sinh of the given basic.
  
- - Parameters _: The symbol to sinh.
+ - Parameters _: The basic to sinh.
  
- - Returns: A new symbol.
+ - Returns: A new basic.
  */
-public func sinh(_ symbolOpt: Symbol?) -> Symbol? {
+public func sinh(_ basicOpt: Basic?) -> Basic? {
     // Handle optional inputs
-    guard let symbol = symbolOpt else {return nil}
+    guard let basic = basicOpt else {return nil}
     
-    let newSymbol = Symbol()
+    let newBasic = Basic()
     
     do {
-        try checkReturn(basic_sinh(newSymbol.pointer, symbol.pointer))
+        try checkReturn(basic_sinh(newBasic.pointer, basic.pointer))
     } catch {
         return nil
     }
-    return newSymbol
+    return newBasic
 }
 
 /**
- Cosh  of the given symbol.
+ Cosh  of the given basic.
  
- - Parameters _: The symbol to cosh.
+ - Parameters _: The basic to cosh.
  
- - Returns: A new symbol.
+ - Returns: A new basic.
  */
-public func cosh(_ symbolOpt: Symbol?) -> Symbol? {
+public func cosh(_ basicOpt: Basic?) -> Basic? {
     // Handle optional inputs
-    guard let symbol = symbolOpt else {return nil}
+    guard let basic = basicOpt else {return nil}
     
-    let newSymbol = Symbol()
+    let newBasic = Basic()
     
     do {
-        try checkReturn(basic_cosh(newSymbol.pointer, symbol.pointer))
+        try checkReturn(basic_cosh(newBasic.pointer, basic.pointer))
     } catch {
         return nil
     }
-    return newSymbol
+    return newBasic
 }
 
 /**
- tanh the given symbol.
+ tanh the given basic.
  
- - Parameters _: The symbol to tanh.
+ - Parameters _: The basic to tanh.
  
- - Returns: A new tanhed symbol.
+ - Returns: A new tanhed basic.
  */
-public func tanh(_ symbolOpt: Symbol?) -> Symbol? {
+public func tanh(_ basicOpt: Basic?) -> Basic? {
     // Handle optional inputs
-    guard let symbol = symbolOpt else {return nil}
+    guard let basic = basicOpt else {return nil}
     
-    let newSymbol = Symbol()
+    let newBasic = Basic()
     
     do {
-        try checkReturn(basic_tanh(newSymbol.pointer, symbol.pointer))
+        try checkReturn(basic_tanh(newBasic.pointer, basic.pointer))
     } catch {
         return nil
     }
-    return newSymbol
+    return newBasic
 }
 
 /**
- asinh the given symbol.
+ asinh the given basic.
  
- - Parameters _: The symbol to asinh.
+ - Parameters _: The basic to asinh.
  
- - Returns: A new asinhed symbol.
+ - Returns: A new asinhed basic.
  */
-public func asinh(_ symbolOpt: Symbol?) -> Symbol? {
+public func asinh(_ basicOpt: Basic?) -> Basic? {
     // Handle optional inputs
-    guard let symbol = symbolOpt else {return nil}
+    guard let basic = basicOpt else {return nil}
     
-    let newSymbol = Symbol()
+    let newBasic = Basic()
     
     do {
-        try checkReturn(basic_asinh(newSymbol.pointer, symbol.pointer))
+        try checkReturn(basic_asinh(newBasic.pointer, basic.pointer))
     } catch {
         return nil
     }
-    return newSymbol
+    return newBasic
 }
 
 /**
- acosh the given symbol.
+ acosh the given basic.
  
- - Parameters _: The symbol to acosh.
+ - Parameters _: The basic to acosh.
  
- - Returns: A new acoshed symbol.
+ - Returns: A new acoshed basic.
  */
-public func acosh(_ symbolOpt: Symbol?) -> Symbol? {
+public func acosh(_ basicOpt: Basic?) -> Basic? {
     // Handle optional inputs
-    guard let symbol = symbolOpt else {return nil}
+    guard let basic = basicOpt else {return nil}
     
-    let newSymbol = Symbol()
+    let newBasic = Basic()
     
     do {
-        try checkReturn(basic_acosh(newSymbol.pointer, symbol.pointer))
+        try checkReturn(basic_acosh(newBasic.pointer, basic.pointer))
     } catch {
         return nil
     }
-    return newSymbol
+    return newBasic
 }
 
 /**
- atanh the given symbol.
+ atanh the given basic.
  
- - Parameters _: The symbol to atanh.
+ - Parameters _: The basic to atanh.
  
- - Returns: A new atanhed symbol.
+ - Returns: A new atanhed basic.
  */
-public func atanh(_ symbolOpt: Symbol?) -> Symbol? {
+public func atanh(_ basicOpt: Basic?) -> Basic? {
     // Handle optional inputs
-    guard let symbol = symbolOpt else {return nil}
+    guard let basic = basicOpt else {return nil}
     
-    let newSymbol = Symbol()
+    let newBasic = Basic()
     
     do {
-        try checkReturn(basic_atanh(newSymbol.pointer, symbol.pointer))
+        try checkReturn(basic_atanh(newBasic.pointer, basic.pointer))
     } catch {
         return nil
     }
-    return newSymbol
+    return newBasic
 }
 
 /**
- csch the given symbol.
+ csch the given basic.
  
- - Parameters _: The symbol to csch.
+ - Parameters _: The basic to csch.
  
- - Returns: A new csched symbol.
+ - Returns: A new csched basic.
  */
-public func csch(_ symbolOpt: Symbol?) -> Symbol? {
+public func csch(_ basicOpt: Basic?) -> Basic? {
     // Handle optional inputs
-    guard let symbol = symbolOpt else {return nil}
+    guard let basic = basicOpt else {return nil}
     
-    let newSymbol = Symbol()
+    let newBasic = Basic()
     
     do {
-        try checkReturn(basic_csch(newSymbol.pointer, symbol.pointer))
+        try checkReturn(basic_csch(newBasic.pointer, basic.pointer))
     } catch {
         return nil
     }
-    return newSymbol
+    return newBasic
 }
 
 /**
- sech the given symbol.
+ sech the given basic.
  
- - Parameters _: The symbol to sech.
+ - Parameters _: The basic to sech.
  
- - Returns: A new seched symbol.
+ - Returns: A new seched basic.
  */
-public func sech(_ symbolOpt: Symbol?) -> Symbol? {
+public func sech(_ basicOpt: Basic?) -> Basic? {
     // Handle optional inputs
-    guard let symbol = symbolOpt else {return nil}
+    guard let basic = basicOpt else {return nil}
     
-    let newSymbol = Symbol()
+    let newBasic = Basic()
     
     do {
-        try checkReturn(basic_sech(newSymbol.pointer, symbol.pointer))
+        try checkReturn(basic_sech(newBasic.pointer, basic.pointer))
     } catch {
         return nil
     }
-    return newSymbol
+    return newBasic
 }
 
 /**
- coth the given symbol.
+ coth the given basic.
  
- - Parameters _: The symbol to coth.
+ - Parameters _: The basic to coth.
  
- - Returns: A new cothed symbol.
+ - Returns: A new cothed basic.
  */
-public func coth(_ symbolOpt: Symbol?) -> Symbol? {
+public func coth(_ basicOpt: Basic?) -> Basic? {
     // Handle optional inputs
-    guard let symbol = symbolOpt else {return nil}
+    guard let basic = basicOpt else {return nil}
     
-    let newSymbol = Symbol()
+    let newBasic = Basic()
     
     do {
-        try checkReturn(basic_coth(newSymbol.pointer, symbol.pointer))
+        try checkReturn(basic_coth(newBasic.pointer, basic.pointer))
     } catch {
         return nil
     }
-    return newSymbol
+    return newBasic
 }
 
 /**
- acsch the given symbol.
+ acsch the given basic.
  
- - Parameters _: The symbol to acsch.
+ - Parameters _: The basic to acsch.
  
- - Returns: A new acsched symbol.
+ - Returns: A new acsched basic.
  */
-public func acsch(_ symbolOpt: Symbol?) -> Symbol? {
+public func acsch(_ basicOpt: Basic?) -> Basic? {
     // Handle optional inputs
-    guard let symbol = symbolOpt else {return nil}
+    guard let basic = basicOpt else {return nil}
     
-    let newSymbol = Symbol()
+    let newBasic = Basic()
     
     do {
-        try checkReturn(basic_acsch(newSymbol.pointer, symbol.pointer))
+        try checkReturn(basic_acsch(newBasic.pointer, basic.pointer))
     } catch {
         return nil
     }
-    return newSymbol
+    return newBasic
 }
 
 /**
- asech the given symbol.
+ asech the given basic.
  
- - Parameters _: The symbol to asech.
+ - Parameters _: The basic to asech.
  
- - Returns: A new aseched symbol.
+ - Returns: A new aseched basic.
  */
-public func asech(_ symbolOpt: Symbol?) -> Symbol? {
+public func asech(_ basicOpt: Basic?) -> Basic? {
     // Handle optional inputs
-    guard let symbol = symbolOpt else {return nil}
+    guard let basic = basicOpt else {return nil}
     
-    let newSymbol = Symbol()
+    let newBasic = Basic()
     
     do {
-        try checkReturn(basic_asech(newSymbol.pointer, symbol.pointer))
+        try checkReturn(basic_asech(newBasic.pointer, basic.pointer))
     } catch {
         return nil
     }
-    return newSymbol
+    return newBasic
 }
 
 /**
- acoth the given symbol.
+ acoth the given basic.
  
- - Parameters _: The symbol to acoth.
+ - Parameters _: The basic to acoth.
  
- - Returns: A new acothed symbol.
+ - Returns: A new acothed basic.
  */
-public func acoth(_ symbolOpt: Symbol?) -> Symbol? {
+public func acoth(_ basicOpt: Basic?) -> Basic? {
     // Handle optional inputs
-    guard let symbol = symbolOpt else {return nil}
+    guard let basic = basicOpt else {return nil}
     
-    let newSymbol = Symbol()
+    let newBasic = Basic()
     
     do {
-        try checkReturn(basic_acoth(newSymbol.pointer, symbol.pointer))
+        try checkReturn(basic_acoth(newBasic.pointer, basic.pointer))
     } catch {
         return nil
     }
-    return newSymbol
+    return newBasic
 }
 
 /**
- lambertw the given symbol.
+ lambertw the given basic.
  
- - Parameters _: The symbol to lambertw.
+ - Parameters _: The basic to lambertw.
  
- - Returns: A new lambertwed symbol.
+ - Returns: A new lambertwed basic.
  */
-public func lambertw(_ symbolOpt: Symbol?) -> Symbol? {
+public func lambertw(_ basicOpt: Basic?) -> Basic? {
     // Handle optional inputs
-    guard let symbol = symbolOpt else {return nil}
+    guard let basic = basicOpt else {return nil}
     
-    let newSymbol = Symbol()
+    let newBasic = Basic()
     
     do {
-        try checkReturn(basic_lambertw(newSymbol.pointer, symbol.pointer))
+        try checkReturn(basic_lambertw(newBasic.pointer, basic.pointer))
     } catch {
         return nil
     }
-    return newSymbol
+    return newBasic
 }
 
 /**
- zeta the given symbol.
+ zeta the given basic.
  
- - Parameters _: The symbol to zeta.
+ - Parameters _: The basic to zeta.
  
- - Returns: A new zetaed symbol.
+ - Returns: A new zetaed basic.
  */
-public func zeta(_ symbolOpt: Symbol?) -> Symbol? {
+public func zeta(_ basicOpt: Basic?) -> Basic? {
     // Handle optional inputs
-    guard let symbol = symbolOpt else {return nil}
+    guard let basic = basicOpt else {return nil}
     
-    let newSymbol = Symbol()
+    let newBasic = Basic()
     
     do {
-        try checkReturn(basic_zeta(newSymbol.pointer, symbol.pointer))
+        try checkReturn(basic_zeta(newBasic.pointer, basic.pointer))
     } catch {
         return nil
     }
-    return newSymbol
+    return newBasic
 }
 
 /**
- dirichletEta of the given symbol.
+ dirichletEta of the given basic.
  
- - Parameters _: The symbol to dirichlet_eta.
+ - Parameters _: The basic to dirichlet_eta.
  
- - Returns: A new dirichlet_etaed symbol.
+ - Returns: A new dirichlet_etaed basic.
  */
-public func dirichletEta(_ symbolOpt: Symbol?) -> Symbol? {
+public func dirichletEta(_ basicOpt: Basic?) -> Basic? {
     // Handle optional inputs
-    guard let symbol = symbolOpt else {return nil}
+    guard let basic = basicOpt else {return nil}
     
-    let newSymbol = Symbol()
+    let newBasic = Basic()
     
     do {
-        try checkReturn(basic_dirichlet_eta(newSymbol.pointer, symbol.pointer))
+        try checkReturn(basic_dirichlet_eta(newBasic.pointer, basic.pointer))
     } catch {
         return nil
     }
-    return newSymbol
+    return newBasic
 }
 
 /**
- gamma the given symbol.
+ gamma the given basic.
  
- - Parameters _: The symbol to gamma.
+ - Parameters _: The basic to gamma.
  
- - Returns: A new gammaed symbol.
+ - Returns: A new gammaed basic.
  */
-public func gamma(_ symbolOpt: Symbol?) -> Symbol? {
+public func gamma(_ basicOpt: Basic?) -> Basic? {
     // Handle optional inputs
-    guard let symbol = symbolOpt else {return nil}
+    guard let basic = basicOpt else {return nil}
     
-    let newSymbol = Symbol()
+    let newBasic = Basic()
     
     do {
-        try checkReturn(basic_gamma(newSymbol.pointer, symbol.pointer))
+        try checkReturn(basic_gamma(newBasic.pointer, basic.pointer))
     } catch {
         return nil
     }
-    return newSymbol
+    return newBasic
 }
 
 /**
- loggamma the given symbol.
+ loggamma the given basic.
  
- - Parameters _: The symbol to loggamma.
+ - Parameters _: The basic to loggamma.
  
- - Returns: A new loggammaed symbol.
+ - Returns: A new loggammaed basic.
  */
-public func loggamma(_ symbolOpt: Symbol?) -> Symbol? {
+public func loggamma(_ basicOpt: Basic?) -> Basic? {
     // Handle optional inputs
-    guard let symbol = symbolOpt else {return nil}
+    guard let basic = basicOpt else {return nil}
     
-    let newSymbol = Symbol()
+    let newBasic = Basic()
     
     do {
-        try checkReturn(basic_loggamma(newSymbol.pointer, symbol.pointer))
+        try checkReturn(basic_loggamma(newBasic.pointer, basic.pointer))
     } catch {
         return nil
     }
-    return newSymbol
+    return newBasic
 }
 
 /**
- sqrt the given symbol.
+ sqrt the given basic.
  
- - Parameters _: The symbol to sqrt.
+ - Parameters _: The basic to sqrt.
  
- - Returns: A new sqrted symbol.
+ - Returns: A new sqrted basic.
  */
-public func sqrt(_ symbolOpt: Symbol?) -> Symbol? {
+public func sqrt(_ basicOpt: Basic?) -> Basic? {
     // Handle optional inputs
-    guard let symbol = symbolOpt else {return nil}
+    guard let basic = basicOpt else {return nil}
     
-    let newSymbol = Symbol()
+    let newBasic = Basic()
     
     do {
-        try checkReturn(basic_sqrt(newSymbol.pointer, symbol.pointer))
+        try checkReturn(basic_sqrt(newBasic.pointer, basic.pointer))
     } catch {
         return nil
     }
-    return newSymbol
+    return newBasic
 }
 
 /**
- cbrt the given symbol.
+ cbrt the given basic.
  
- - Parameters _: The symbol to cbrt.
+ - Parameters _: The basic to cbrt.
  
- - Returns: A new cbrted symbol.
+ - Returns: A new cbrted basic.
  */
-public func cbrt(_ symbolOpt: Symbol?) -> Symbol? {
+public func cbrt(_ basicOpt: Basic?) -> Basic? {
     // Handle optional inputs
-    guard let symbol = symbolOpt else {return nil}
+    guard let basic = basicOpt else {return nil}
     
-    let newSymbol = Symbol()
+    let newBasic = Basic()
     
     do {
-        try checkReturn(basic_cbrt(newSymbol.pointer, symbol.pointer))
+        try checkReturn(basic_cbrt(newBasic.pointer, basic.pointer))
     } catch {
         return nil
     }
-    return newSymbol
+    return newBasic
 }
 
 /**
- exp the given symbol.
+ exp the given basic.
  
- - Parameters _: The symbol to exp.
+ - Parameters _: The basic to exp.
  
- - Returns: A new exped symbol.
+ - Returns: A new exped basic.
  */
-public func exp(_ symbolOpt: Symbol?) -> Symbol? {
+public func exp(_ basicOpt: Basic?) -> Basic? {
     // Handle optional inputs
-    guard let symbol = symbolOpt else {return nil}
+    guard let basic = basicOpt else {return nil}
     
-    let newSymbol = Symbol()
+    let newBasic = Basic()
     
     do {
-        try checkReturn(basic_exp(newSymbol.pointer, symbol.pointer))
+        try checkReturn(basic_exp(newBasic.pointer, basic.pointer))
     } catch {
         return nil
     }
-    return newSymbol
+    return newBasic
 }
 
 /**
- log the given symbol.
+ log the given basic.
  
- - Parameters _: The symbol to log.
+ - Parameters _: The basic to log.
  
- - Returns: A new loged symbol.
+ - Returns: A new loged basic.
  */
-public func log(_ symbolOpt: Symbol?) -> Symbol? {
+public func log(_ basicOpt: Basic?) -> Basic? {
     // Handle optional inputs
-    guard let symbol = symbolOpt else {return nil}
+    guard let basic = basicOpt else {return nil}
     
-    let newSymbol = Symbol()
+    let newBasic = Basic()
     
     do {
-        try checkReturn(basic_log(newSymbol.pointer, symbol.pointer))
+        try checkReturn(basic_log(newBasic.pointer, basic.pointer))
     } catch {
         return nil
     }
-    return newSymbol
+    return newBasic
 }
 
