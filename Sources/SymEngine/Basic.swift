@@ -8,7 +8,8 @@ import CSymEngine
 public class Basic: CustomStringConvertible,
                     ExpressibleByFloatLiteral,
                     ExpressibleByIntegerLiteral,
-                    Equatable {
+                    Equatable,
+                    Hashable {
     
     
     //---------------------- Type Defs -----------------------
@@ -140,7 +141,17 @@ public class Basic: CustomStringConvertible,
         // Failure case
         return nil
     }
-    
+
+
+    public var isNumber: Bool {
+        let result: Int32 = is_a_Number(self.pointer)
+        return result == 1 ? true : false
+    }
+
+    public var isSymbol: Bool {
+        let result: Int32 = is_a_Symbol(self.pointer)
+        return result == 1 ? true : false
+    }
     
     //---------------------- Initializers -----------------------
     
@@ -337,7 +348,7 @@ public class Basic: CustomStringConvertible,
 
     - Parameter name: The name of the new basic
     */
-    public convenience init(name: String) {
+    public convenience init(symbol name: String) {
         // Allocate heap
         self.init()
         // Assign to the string
@@ -352,7 +363,42 @@ public class Basic: CustomStringConvertible,
     - Parameter _: The name of the new basic
     */
     public convenience init(_ name: String) {
-        self.init(name: name)
+        self.init(symbol: name)
+    }
+
+    //------------------ Hashable Conformance ------------------
+
+    public func hash(into hasher: inout Hasher) {
+        let hashValue: size_t = basic_hash(self.pointer)
+        hasher.combine(hashValue)
+    }
+
+    /**
+     Implement the required function for the `Equatable` protocol.
+     */
+    public static func == (lhs: Basic, rhs: Basic) -> Bool {
+        return basic_eq(lhs.pointer, rhs.pointer) == 1 ? true : false
+    }
+
+    //------------------- Other  Functions -------------------------
+
+    public func replace(_ original: Basic, with replacement: Basic) throws -> Basic {
+        let newBasic = Basic()
+        try checkReturn(basic_subs2(newBasic.pointer,
+                                    self.pointer,
+                                    original.pointer,
+                                    replacement.pointer))
+        return newBasic
+    }
+
+    public func getCoefficient(ofVariable variable: Basic,
+                               withDegreee degree: Basic) throws -> Basic {
+        let newBasic = Basic()
+        try checkReturn(basic_coeff(newBasic.pointer,
+                                    self.pointer,
+                                    variable.pointer,
+                                    degree.pointer))
+        return newBasic
     }
     
     //-------------------- Static Functions --------------------
@@ -366,47 +412,4 @@ public class Basic: CustomStringConvertible,
         // Free the pointer
         basic_free_heap(pointer)
     }
-    
-    /**
-    Get the current version of the SymEngine C++ library, not of the wrapper.
-
-    - Returns: A string representing the version in use.
-    */
-    public static var version: String {
-        // Get a pointer to char* buff
-        let buff: UnsafePointer<Int8> = symengine_version()
-        // Copy the buff just for safety
-        let str: String = String(cString: buff)
-        // Return the copy
-        return str
-    }
-}
-
-/**
-Get an ascii art representation of SymEngine.
- 
- ```
-  _____           _____         _
- |   __|_ _ _____|   __|___ ___|_|___ ___
- |__   | | |     |   __|   | . | |   | -_|
- |_____|_  |_|_|_|_____|_|_|_  |_|_|_|___|
-       |___|               |___|
- ```
-
-- Returns: An ascii art representation of SymEngine.
-*/
-public var asciiArt: String? {
-    // Get a pointer to char* buff
-    let buffOpt: UnsafeMutablePointer<Int8>? = ascii_art_str()
-    if let buff = buffOpt {
-        // Copy the buff so we can free it
-        let str: String = String(cString: buff)
-        // Free the string buff
-        basic_str_free(buff)
-        // Return the copy
-        return str
-    }
-    
-    // Failure case
-    return nil
 }
